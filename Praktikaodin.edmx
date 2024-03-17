@@ -1,0 +1,397 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище PraktikaodinModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Color">
+          <Key>
+            <PropertyRef Name="ID_Color" />
+          </Key>
+          <Property Name="ID_Color" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Color" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Shoe">
+          <Key>
+            <PropertyRef Name="ID_ShoeType" />
+          </Key>
+          <Property Name="ID_ShoeType" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ShoeType" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ShoeFactory">
+          <Key>
+            <PropertyRef Name="ID_Product" />
+          </Key>
+          <Property Name="ID_Product" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ShoeType_ID" Type="int" Nullable="false" />
+          <Property Name="Size_ID" Type="int" Nullable="false" />
+          <Property Name="Color_ID" Type="int" Nullable="false" />
+          <Property Name="Price" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Size">
+          <Key>
+            <PropertyRef Name="ID_Size" />
+          </Key>
+          <Property Name="ID_Size" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Size" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Praktikaodin.dbo.ColorView" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="ColorView">
+          <Key>
+            <PropertyRef Name="Номер цвета:" />
+            <PropertyRef Name="Цвет:" />
+          </Key>
+          <Property Name="Номер цвета:" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Цвет:" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Praktikaodin.dbo.ShoeInventory" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="ShoeInventory">
+          <Key>
+            <PropertyRef Name="Обувь:" />
+            <PropertyRef Name="Размер:" />
+            <PropertyRef Name="Цвет:" />
+            <PropertyRef Name="Цена:" />
+          </Key>
+          <Property Name="Обувь:" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Размер:" Type="int" Nullable="false" />
+          <Property Name="Цвет:" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Цена:" Type="float" Nullable="false" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Praktikaodin.dbo.ShoeView" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="ShoeView">
+          <Key>
+            <PropertyRef Name="Номер обуви:" />
+            <PropertyRef Name="Тип обуви:" />
+          </Key>
+          <Property Name="Номер обуви:" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Тип обуви:" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Praktikaodin.dbo.SizeView" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="SizeView">
+          <Key>
+            <PropertyRef Name="Номер размера:" />
+            <PropertyRef Name="Размер:" />
+          </Key>
+          <Property Name="Номер размера:" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Размер:" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__ShoeFacto__Color__3F466844">
+          <End Role="Color" Type="Self.Color" Multiplicity="1" />
+          <End Role="ShoeFactory" Type="Self.ShoeFactory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Color">
+              <PropertyRef Name="ID_Color" />
+            </Principal>
+            <Dependent Role="ShoeFactory">
+              <PropertyRef Name="Color_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ShoeFacto__ShoeT__3D5E1FD2">
+          <End Role="Shoe" Type="Self.Shoe" Multiplicity="1" />
+          <End Role="ShoeFactory" Type="Self.ShoeFactory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shoe">
+              <PropertyRef Name="ID_ShoeType" />
+            </Principal>
+            <Dependent Role="ShoeFactory">
+              <PropertyRef Name="ShoeType_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ShoeFacto__Size___3E52440B">
+          <End Role="Size" Type="Self.Size" Multiplicity="1" />
+          <End Role="ShoeFactory" Type="Self.ShoeFactory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Size">
+              <PropertyRef Name="ID_Size" />
+            </Principal>
+            <Dependent Role="ShoeFactory">
+              <PropertyRef Name="Size_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище PraktikaodinModelContainer">
+          <EntitySet Name="Color" EntityType="Self.Color" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Shoe" EntityType="Self.Shoe" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ShoeFactory" EntityType="Self.ShoeFactory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Size" EntityType="Self.Size" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ColorView" EntityType="Self.ColorView" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ColorView].[Номер цвета:] AS [Номер цвета:], 
+    [ColorView].[Цвет:] AS [Цвет:]
+    FROM [dbo].[ColorView] AS [ColorView]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ShoeInventory" EntityType="Self.ShoeInventory" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ShoeInventory].[Обувь:] AS [Обувь:], 
+    [ShoeInventory].[Размер:] AS [Размер:], 
+    [ShoeInventory].[Цвет:] AS [Цвет:], 
+    [ShoeInventory].[Цена:] AS [Цена:]
+    FROM [dbo].[ShoeInventory] AS [ShoeInventory]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ShoeView" EntityType="Self.ShoeView" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ShoeView].[Номер обуви:] AS [Номер обуви:], 
+    [ShoeView].[Тип обуви:] AS [Тип обуви:]
+    FROM [dbo].[ShoeView] AS [ShoeView]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="SizeView" EntityType="Self.SizeView" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [SizeView].[Номер размера:] AS [Номер размера:], 
+    [SizeView].[Размер:] AS [Размер:]
+    FROM [dbo].[SizeView] AS [SizeView]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__ShoeFacto__Color__3F466844" Association="Self.FK__ShoeFacto__Color__3F466844">
+            <End Role="Color" EntitySet="Color" />
+            <End Role="ShoeFactory" EntitySet="ShoeFactory" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ShoeFacto__ShoeT__3D5E1FD2" Association="Self.FK__ShoeFacto__ShoeT__3D5E1FD2">
+            <End Role="Shoe" EntitySet="Shoe" />
+            <End Role="ShoeFactory" EntitySet="ShoeFactory" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ShoeFacto__Size___3E52440B" Association="Self.FK__ShoeFacto__Size___3E52440B">
+            <End Role="Size" EntitySet="Size" />
+            <End Role="ShoeFactory" EntitySet="ShoeFactory" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PraktikaodinModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Color">
+          <Key>
+            <PropertyRef Name="ID_Color" />
+          </Key>
+          <Property Name="ID_Color" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Color1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ShoeFactory" Relationship="Self.FK__ShoeFacto__Color__3F466844" FromRole="Color" ToRole="ShoeFactory" />
+        </EntityType>
+        <EntityType Name="Shoe">
+          <Key>
+            <PropertyRef Name="ID_ShoeType" />
+          </Key>
+          <Property Name="ID_ShoeType" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ShoeType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ShoeFactory" Relationship="Self.FK__ShoeFacto__ShoeT__3D5E1FD2" FromRole="Shoe" ToRole="ShoeFactory" />
+        </EntityType>
+        <EntityType Name="ShoeFactory">
+          <Key>
+            <PropertyRef Name="ID_Product" />
+          </Key>
+          <Property Name="ID_Product" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ShoeType_ID" Type="Int32" Nullable="false" />
+          <Property Name="Size_ID" Type="Int32" Nullable="false" />
+          <Property Name="Color_ID" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Color" Relationship="Self.FK__ShoeFacto__Color__3F466844" FromRole="ShoeFactory" ToRole="Color" />
+          <NavigationProperty Name="Shoe" Relationship="Self.FK__ShoeFacto__ShoeT__3D5E1FD2" FromRole="ShoeFactory" ToRole="Shoe" />
+          <NavigationProperty Name="Size" Relationship="Self.FK__ShoeFacto__Size___3E52440B" FromRole="ShoeFactory" ToRole="Size" />
+        </EntityType>
+        <EntityType Name="Size">
+          <Key>
+            <PropertyRef Name="ID_Size" />
+          </Key>
+          <Property Name="ID_Size" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Size1" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ShoeFactory" Relationship="Self.FK__ShoeFacto__Size___3E52440B" FromRole="Size" ToRole="ShoeFactory" />
+        </EntityType>
+        <EntityType Name="ColorView">
+          <Key>
+            <PropertyRef Name="Номер_цвета" />
+            <PropertyRef Name="Цвет" />
+          </Key>
+          <Property Name="Номер_цвета" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Цвет" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ShoeInventory">
+          <Key>
+            <PropertyRef Name="Обувь" />
+            <PropertyRef Name="Размер" />
+            <PropertyRef Name="Цвет" />
+            <PropertyRef Name="Цена" />
+          </Key>
+          <Property Name="Обувь" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Размер" Type="Int32" Nullable="false" />
+          <Property Name="Цвет" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Цена" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ShoeView">
+          <Key>
+            <PropertyRef Name="Номер_обуви" />
+            <PropertyRef Name="Тип_обуви" />
+          </Key>
+          <Property Name="Номер_обуви" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Тип_обуви" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SizeView">
+          <Key>
+            <PropertyRef Name="Номер_размера" />
+            <PropertyRef Name="Размер" />
+          </Key>
+          <Property Name="Номер_размера" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Размер" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__ShoeFacto__Color__3F466844">
+          <End Role="Color" Type="Self.Color" Multiplicity="1" />
+          <End Role="ShoeFactory" Type="Self.ShoeFactory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Color">
+              <PropertyRef Name="ID_Color" />
+            </Principal>
+            <Dependent Role="ShoeFactory">
+              <PropertyRef Name="Color_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ShoeFacto__ShoeT__3D5E1FD2">
+          <End Role="Shoe" Type="Self.Shoe" Multiplicity="1" />
+          <End Role="ShoeFactory" Type="Self.ShoeFactory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shoe">
+              <PropertyRef Name="ID_ShoeType" />
+            </Principal>
+            <Dependent Role="ShoeFactory">
+              <PropertyRef Name="ShoeType_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ShoeFacto__Size___3E52440B">
+          <End Role="Size" Type="Self.Size" Multiplicity="1" />
+          <End Role="ShoeFactory" Type="Self.ShoeFactory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Size">
+              <PropertyRef Name="ID_Size" />
+            </Principal>
+            <Dependent Role="ShoeFactory">
+              <PropertyRef Name="Size_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PraktikaodinEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Color" EntityType="Self.Color" />
+          <EntitySet Name="Shoe" EntityType="Self.Shoe" />
+          <EntitySet Name="ShoeFactory" EntityType="Self.ShoeFactory" />
+          <EntitySet Name="Size" EntityType="Self.Size" />
+          <EntitySet Name="ColorView" EntityType="Self.ColorView" />
+          <EntitySet Name="ShoeInventory" EntityType="Self.ShoeInventory" />
+          <EntitySet Name="ShoeView" EntityType="Self.ShoeView" />
+          <EntitySet Name="SizeView" EntityType="Self.SizeView" />
+          <AssociationSet Name="FK__ShoeFacto__Color__3F466844" Association="Self.FK__ShoeFacto__Color__3F466844">
+            <End Role="Color" EntitySet="Color" />
+            <End Role="ShoeFactory" EntitySet="ShoeFactory" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ShoeFacto__ShoeT__3D5E1FD2" Association="Self.FK__ShoeFacto__ShoeT__3D5E1FD2">
+            <End Role="Shoe" EntitySet="Shoe" />
+            <End Role="ShoeFactory" EntitySet="ShoeFactory" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ShoeFacto__Size___3E52440B" Association="Self.FK__ShoeFacto__Size___3E52440B">
+            <End Role="Size" EntitySet="Size" />
+            <End Role="ShoeFactory" EntitySet="ShoeFactory" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище PraktikaodinModelContainer" CdmEntityContainer="PraktikaodinEntities">
+          <EntitySetMapping Name="Color">
+            <EntityTypeMapping TypeName="PraktikaodinModel.Color">
+              <MappingFragment StoreEntitySet="Color">
+                <ScalarProperty Name="ID_Color" ColumnName="ID_Color" />
+                <ScalarProperty Name="Color1" ColumnName="Color" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Shoe">
+            <EntityTypeMapping TypeName="PraktikaodinModel.Shoe">
+              <MappingFragment StoreEntitySet="Shoe">
+                <ScalarProperty Name="ID_ShoeType" ColumnName="ID_ShoeType" />
+                <ScalarProperty Name="ShoeType" ColumnName="ShoeType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ShoeFactory">
+            <EntityTypeMapping TypeName="PraktikaodinModel.ShoeFactory">
+              <MappingFragment StoreEntitySet="ShoeFactory">
+                <ScalarProperty Name="ID_Product" ColumnName="ID_Product" />
+                <ScalarProperty Name="ShoeType_ID" ColumnName="ShoeType_ID" />
+                <ScalarProperty Name="Size_ID" ColumnName="Size_ID" />
+                <ScalarProperty Name="Color_ID" ColumnName="Color_ID" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Size">
+            <EntityTypeMapping TypeName="PraktikaodinModel.Size">
+              <MappingFragment StoreEntitySet="Size">
+                <ScalarProperty Name="ID_Size" ColumnName="ID_Size" />
+                <ScalarProperty Name="Size1" ColumnName="Size" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ColorView">
+            <EntityTypeMapping TypeName="PraktikaodinModel.ColorView">
+              <MappingFragment StoreEntitySet="ColorView">
+                <ScalarProperty Name="Номер_цвета" ColumnName="Номер цвета:" />
+                <ScalarProperty Name="Цвет" ColumnName="Цвет:" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ShoeInventory">
+            <EntityTypeMapping TypeName="PraktikaodinModel.ShoeInventory">
+              <MappingFragment StoreEntitySet="ShoeInventory">
+                <ScalarProperty Name="Обувь" ColumnName="Обувь:" />
+                <ScalarProperty Name="Размер" ColumnName="Размер:" />
+                <ScalarProperty Name="Цвет" ColumnName="Цвет:" />
+                <ScalarProperty Name="Цена" ColumnName="Цена:" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ShoeView">
+            <EntityTypeMapping TypeName="PraktikaodinModel.ShoeView">
+              <MappingFragment StoreEntitySet="ShoeView">
+                <ScalarProperty Name="Номер_обуви" ColumnName="Номер обуви:" />
+                <ScalarProperty Name="Тип_обуви" ColumnName="Тип обуви:" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SizeView">
+            <EntityTypeMapping TypeName="PraktikaodinModel.SizeView">
+              <MappingFragment StoreEntitySet="SizeView">
+                <ScalarProperty Name="Номер_размера" ColumnName="Номер размера:" />
+                <ScalarProperty Name="Размер" ColumnName="Размер:" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

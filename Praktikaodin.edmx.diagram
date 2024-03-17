@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="02726bea4f764b0587438c369f295c13" Name="Diagram1" ZoomLevel="97">
+        <EntityTypeShape EntityType="PraktikaodinModel.Color" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PraktikaodinModel.Shoe" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PraktikaodinModel.ShoeFactory" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="PraktikaodinModel.Size" Width="1.5" PointX="0.75" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PraktikaodinModel.ColorView" Width="1.5" PointX="5" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PraktikaodinModel.ShoeInventory" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PraktikaodinModel.ShoeView" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PraktikaodinModel.SizeView" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
+        <AssociationConnector Association="PraktikaodinModel.FK__ShoeFacto__Color__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="PraktikaodinModel.FK__ShoeFacto__ShoeT__3D5E1FD2" ManuallyRouted="false" />
+        <AssociationConnector Association="PraktikaodinModel.FK__ShoeFacto__Size___3E52440B" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

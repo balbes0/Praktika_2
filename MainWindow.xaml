@@ -1,0 +1,62 @@
+﻿<Window x:Class="Praktika_2.MainWindow"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Praktika_2"
+        mc:Ignorable="d"
+        Title="Практика 2" Height="450" Width="800">
+    <Grid Background="Black">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="6*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Frame Grid.Row="0" Background="#111111" Foreground="DarkGray" x:Name="PageFrame" NavigationUIVisibility="Hidden"/>
+        <Label Grid.Row="0" Foreground="DarkGray" FontSize="15" Margin="20,20,0,0" Width="164" Height="32" VerticalAlignment="Top" HorizontalAlignment="Left" x:Name="LabelChangeFramework">Выберите фреймворк</Label>
+        <Grid Margin="0,5,0,0" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="NextPage" Grid.Column="2" 
+  Style="{StaticResource MaterialDesignIconButton}"
+  ToolTip="Переключение на страницу с EF"
+  Background="{DynamicResource MaterialDesignTextFieldBoxBackground}"
+  IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Click="NextPage_Click">
+                <materialDesign:PackIcon
+    Kind="PageNextOutline"/>
+            </Button>
+            <Button x:Name="PagePreviousDS" Grid.Column="1" 
+Style="{StaticResource MaterialDesignIconButton}"
+ToolTip="Переключение на страницу с DataSet"
+Background="{DynamicResource MaterialDesignTextFieldBoxBackground}"
+IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Click="PagePreviousDS_Click">
+                <materialDesign:PackIcon x:Name="PagePreviousDS1"
+  Kind="PagePreviousOutline"/>
+            </Button>
+            <Button x:Name="SaveChangesButton" Grid.Column="5" Margin="15, 0, 10, 0"
+  Style="{StaticResource MaterialDesignOutlinedButton}"
+  ToolTip="Сохрание внесенных данных"
+  Content="Сохранить"
+  IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Click="SaveChangesButton_Click"/>
+            <Button x:Name="DeleteDataButton" Grid.Column="4" Margin="15, 0, 15, 0"
+Style="{StaticResource MaterialDesignOutlinedButton}"
+ToolTip="Удаление выбранной колонки"
+Content="Удалить"
+IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Click="DeleteDataButton_Click" />
+            <Button x:Name="AddButton" Grid.Column="3" Margin="15, 0, 15, 0"
+Style="{StaticResource MaterialDesignOutlinedButton}"
+ToolTip="Добавление новой колонки в таблицу"
+Content="Добавить"
+IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Click="AddButton_Click" />
+            <ComboBox Grid.Column="0" Foreground="DarkGray" Margin="10, 0, 0, 0" x:Name="ComboBoxChangeTable"
+  materialDesign:HintAssist.Hint="Выбор таблицы" SelectionChanged="ComboBoxChangeTable_SelectionChanged">
+            </ComboBox>
+        </Grid>
+    </Grid>
+</Window>
