@@ -138,10 +138,10 @@ namespace Praktika_2
                 else if (nametable == "ShoeFactory")
                 {
                     var selected = DataGridEF.SelectedItem as ShoeFactory;
-                    ShoeTypeIDCMBX.Text = selected.ShoeType_ID.ToString();
-                    ColorIDCMBX.Text = selected.Color_ID.ToString();
-                    SizeIDCMBX.Text = selected.Size_ID.ToString();
-                    PriceTBX.Text = selected.Price.ToString();
+                    selected.ShoeType_ID = Convert.ToInt32(ShoeTypeIDCMBX.Text);
+                    selected.Color_ID = Convert.ToInt32(ColorIDCMBX.Text);
+                    selected.Size_ID = Convert.ToInt32(SizeIDCMBX.Text);
+                    selected.Price = Convert.ToInt32(PriceTBX.Text);
                     praktikaodinEntity.SaveChanges();
                     DataGridEF.ItemsSource = praktikaodinEntity.ShoeFactory.ToList();
                 }
