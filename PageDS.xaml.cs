@@ -36,6 +36,14 @@ namespace Praktika_2
                 else if (selectedTable == "ShoeFactory")
                 {
                     DataGridDS.ItemsSource = shoeFactoryTableAdapter.GetData();
+                    ShoeTypeIDCMBX.ItemsSource = shoeTableAdapter.GetData();
+                    ShoeTypeIDCMBX.DisplayMemberPath = "ID_ShoeType";
+                    ColorIDCMBX.ItemsSource = colorTableAdapter.GetData();
+                    ColorIDCMBX.DisplayMemberPath = "ID_Color";
+                    SizeIDCMBX.ItemsSource= sizeTableAdapter.GetData();
+                    SizeIDCMBX.DisplayMemberPath = "ID_Size";
+                    TextBoxGridDS.Visibility = Visibility.Hidden;
+                    ShoeFactoryGridDS.Visibility = Visibility.Visible;
                 }
                 else if (selectedTable == "Size")
                 {
@@ -79,7 +87,11 @@ namespace Praktika_2
                     int size = Convert.ToInt32(editedText);
                     sizeTableAdapter.UpdateQuerySize(size, Convert.ToInt32(id));
                 }
-                else if (nametable == "ShoeFactory" || nametable == "ShoeInventory" || nametable == "ShoeView" || nametable == "SizeView" || nametable == "ColorView")
+                else if (nametable == "ShoeFactory")
+                {
+                    shoeFactoryTableAdapter.UpdateQueryShoeFactory(Convert.ToInt32(ShoeTypeIDCMBX.Text), Convert.ToInt32(SizeIDCMBX.Text), Convert.ToInt32(ColorIDCMBX.Text), Convert.ToInt32(PriceTBX.Text), Convert.ToInt32(id));
+                }
+                else if (nametable == "ShoeInventory" || nametable == "ShoeView" || nametable == "SizeView" || nametable == "ColorView")
                 {
                     MessageBox.Show("Эту таблицу менять нельзя!");
                 }
@@ -95,14 +107,20 @@ namespace Praktika_2
             else if (nametable == "Shoe")
             {
                 shoeTableAdapter.InsertQueryShoeType(TextBoxDS.Text);
-                DataGridDS.ItemsSource = sizeTableAdapter.GetData();
+                DataGridDS.ItemsSource = shoeTableAdapter.GetData();
             }
             else if (nametable == "Size")
             {
                 int size = Convert.ToInt32(TextBoxDS.Text);
                 sizeTableAdapter.InsertQuerySize(size);
+                DataGridDS.ItemsSource = sizeTableAdapter.GetData();
             }
-            else if (nametable == "ShoeFactory" || nametable == "ShoeInventory" || nametable == "ShoeView" || nametable == "SizeView" || nametable == "ColorView")
+            else if (nametable == "ShoeFactory")
+            {
+                shoeFactoryTableAdapter.InsertQueryShoeFactory(Convert.ToInt32(ShoeTypeIDCMBX.Text), Convert.ToInt32(SizeIDCMBX.Text), Convert.ToInt32(ColorIDCMBX.Text), Convert.ToInt32(PriceTBX.Text));
+                DataGridDS.ItemsSource= shoeFactoryTableAdapter.GetData();
+            }
+            else if (nametable == "ShoeInventory" || nametable == "ShoeView" || nametable == "SizeView" || nametable == "ColorView")
             {
                 MessageBox.Show("Эту таблицу менять нельзя!");
             }
@@ -140,7 +158,12 @@ namespace Praktika_2
                     sizeTableAdapter.DeleteQuerySize(Convert.ToInt32(id));
                     DataGridDS.ItemsSource = sizeTableAdapter.GetData();
                 }
-                else if (nametable == "ShoeFactory" || nametable == "ShoeInventory" || nametable == "ShoeView" || nametable == "SizeView" || nametable == "ColorView")
+                else if (nametable == "ShoeFactory")
+                {
+                    shoeFactoryTableAdapter.DeleteQueryShoeFactory(Convert.ToInt32(id));
+                    DataGridDS.ItemsSource = shoeFactoryTableAdapter.GetData();
+                }
+                else if (nametable == "ShoeInventory" || nametable == "ShoeView" || nametable == "SizeView" || nametable == "ColorView")
                 {
                     MessageBox.Show("Эту таблицу менять нельзя!");
                 }

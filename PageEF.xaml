@@ -11,17 +11,29 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="22*"/>
-            <RowDefinition Height="176*"/>
-            <RowDefinition Height="27*"/>
+            <RowDefinition Height="64*"/>
+            <RowDefinition Height="327*"/>
+            <RowDefinition Height="59*"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0" Background="Black">
             <Label Foreground="DarkGray" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center">Entity Framework</Label>
         </Grid>
-        <DataGrid CanUserAddRows="False" Margin="0, 10, 0, 0" Visibility="Hidden" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Background="DarkGray" Foreground="Black" x:Name="DataGridEF"/>
+        <DataGrid CanUserAddRows="False" Visibility="Hidden" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Background="DarkGray" Foreground="Black" x:Name="DataGridEF"/>
         <Label Grid.Row="1" Foreground="DarkGray" FontSize="15" Margin="20,20,0,0" Width="190" Height="40" VerticalAlignment="Top" HorizontalAlignment="Left" x:Name="LabelEF">Выберите таблицу</Label>
-        <Grid Grid.Row="2">
+        <Grid Grid.Row="2" x:Name="GridTextBoxEF" Visibility="Hidden">
             <TextBox Foreground="DarkGray" VerticalContentAlignment="Center" Margin="10, 5, 10, 5" x:Name="TextBoxEF"/>
+        </Grid>
+        <Grid Grid.Row="2" x:Name="GridComboBoxesEF" Visibility="Hidden" Margin="10, 0, 10, 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <ComboBox x:Name="ShoeTypeIDCMBX" Grid.Column="0" materialDesign:HintAssist.Hint="ShoeTypeID" Foreground="DarkGray" VerticalContentAlignment="Center"></ComboBox>
+            <ComboBox x:Name="SizeIDCMBX" Grid.Column="1" materialDesign:HintAssist.Hint="SizeID" Foreground="DarkGray" VerticalContentAlignment="Center"></ComboBox>
+            <ComboBox x:Name="ColorIDCMBX" Grid.Column="2" materialDesign:HintAssist.Hint="ColorID" Foreground="DarkGray" VerticalContentAlignment="Center"></ComboBox>
+            <TextBox x:Name="PriceTBX" Grid.Column="3" materialDesign:HintAssist.Hint="Price" Foreground="DarkGray" VerticalContentAlignment="Center"></TextBox>
         </Grid>
     </Grid>
 </Page>

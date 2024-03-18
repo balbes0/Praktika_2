@@ -19,6 +19,9 @@ namespace Praktika_2
             InitializeComponent();
             if (selectedTable != "")
             {
+                GridTextBoxEF.Visibility = Visibility.Visible;
+                DataGridEF.Visibility = Visibility.Visible;
+                LabelEF.Visibility = Visibility.Hidden;
                 nametable = selectedTable;
                 if (selectedTable == "Color")
                 {
@@ -31,6 +34,14 @@ namespace Praktika_2
                 else if (selectedTable == "ShoeFactory")
                 {
                     DataGridEF.ItemsSource = praktikaodinEntity.ShoeFactory.ToList();
+                    SizeIDCMBX.ItemsSource = praktikaodinEntity.Size.ToList();
+                    SizeIDCMBX.DisplayMemberPath = "ID_Size";
+                    ColorIDCMBX.ItemsSource = praktikaodinEntity.Color.ToList();
+                    ColorIDCMBX.DisplayMemberPath = "ID_Color";
+                    ShoeTypeIDCMBX.ItemsSource = praktikaodinEntity.Shoe.ToList();
+                    ShoeTypeIDCMBX.DisplayMemberPath = "ID_ShoeType";
+                    GridTextBoxEF.Visibility = Visibility.Hidden;
+                    GridComboBoxesEF.Visibility = Visibility.Visible;
                 }
                 else if (selectedTable == "Size")
                 {
@@ -52,13 +63,7 @@ namespace Praktika_2
                 {
                     DataGridEF.ItemsSource = praktikaodinEntity.ShoeView.ToList();
                 }
-                DataGridEF.Visibility = Visibility.Visible;
-                LabelEF.Visibility = Visibility.Hidden;
             }
-        }
-        private void SaveChanges()
-        {
-            
         }
         public void AddNewData()
         {
@@ -85,9 +90,19 @@ namespace Praktika_2
                 praktikaodinEntity.Size.Add(size);
                 praktikaodinEntity.SaveChanges();
                 DataGridEF.ItemsSource = praktikaodinEntity.Size.ToList();
-
             }
-            else if (nametable == "ShoeFactory" || nametable == "ShoeInventory" || nametable == "ShoeView" || nametable == "SizeView" || nametable == "ColorView")
+            else if (nametable == "ShoeFactory")
+            {
+                ShoeFactory shoeFactory = new ShoeFactory();
+                shoeFactory.ShoeType_ID = (Convert.ToInt32(ShoeTypeIDCMBX.Text));
+                shoeFactory.Size_ID = (Convert.ToInt32(SizeIDCMBX.Text));
+                shoeFactory.Color_ID = (Convert.ToInt32(ColorIDCMBX.Text));
+                shoeFactory.Price = (Convert.ToInt32(PriceTBX.Text));
+                praktikaodinEntity.ShoeFactory.Add(shoeFactory);
+                praktikaodinEntity.SaveChanges();
+                DataGridEF.ItemsSource = praktikaodinEntity.ShoeFactory.ToList();
+            }
+            else if (nametable == "ShoeInventory" || nametable == "ShoeView" || nametable == "SizeView" || nametable == "ColorView")
             {
                 MessageBox.Show("Эту таблицу менять нельзя!");
             }
@@ -120,7 +135,17 @@ namespace Praktika_2
                     praktikaodinEntity.SaveChanges();
                     DataGridEF.ItemsSource = praktikaodinEntity.Color.ToList();
                 }
-                else if (nametable == "ShoeFactory" || nametable == "ShoeInventory" || nametable == "ShoeView" || nametable == "SizeView" || nametable == "ColorView")
+                else if (nametable == "ShoeFactory")
+                {
+                    var selected = DataGridEF.SelectedItem as ShoeFactory;
+                    ShoeTypeIDCMBX.Text = selected.ShoeType_ID.ToString();
+                    ColorIDCMBX.Text = selected.Color_ID.ToString();
+                    SizeIDCMBX.Text = selected.Size_ID.ToString();
+                    PriceTBX.Text = selected.Price.ToString();
+                    praktikaodinEntity.SaveChanges();
+                    DataGridEF.ItemsSource = praktikaodinEntity.ShoeFactory.ToList();
+                }
+                else if (nametable == "ShoeInventory" || nametable == "ShoeView" || nametable == "SizeView" || nametable == "ColorView")
                 {
                     MessageBox.Show("Эту таблицу менять нельзя!");
                 }
@@ -149,7 +174,13 @@ namespace Praktika_2
                     praktikaodinEntity.SaveChanges();
                     DataGridEF.ItemsSource = praktikaodinEntity.Size.ToList();
                 }
-                else if (nametable == "ShoeFactory" || nametable == "ShoeInventory" || nametable == "ShoeView" || nametable == "SizeView" || nametable == "ColorView")
+                else if (nametable == "ShoeFactory")
+                {
+                    praktikaodinEntity.ShoeFactory.Remove(DataGridEF.SelectedItem as ShoeFactory);
+                    praktikaodinEntity.SaveChanges();
+                    DataGridEF.ItemsSource = praktikaodinEntity.ShoeFactory.ToList();
+                }
+                else if (nametable == "ShoeInventory" || nametable == "ShoeView" || nametable == "SizeView" || nametable == "ColorView")
                 {
                     MessageBox.Show("Эту таблицу менять нельзя!");
                 }
