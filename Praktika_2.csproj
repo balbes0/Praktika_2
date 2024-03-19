@@ -102,6 +102,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Praktika1.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Praktika1DataSet.cs">
+      <DependentUpon>Praktika1DataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Praktika1DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

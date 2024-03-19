@@ -40,12 +40,6 @@ namespace Praktika_2 {
         
         private SizeViewDataTable tableSizeView;
         
-        private global::System.Data.DataRelation relationFK__ShoeFacto__Color__3F466844;
-        
-        private global::System.Data.DataRelation relationFK__ShoeFacto__ShoeT__3D5E1FD2;
-        
-        private global::System.Data.DataRelation relationFK__ShoeFacto__Size___3E52440B;
-        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -368,9 +362,6 @@ namespace Praktika_2 {
                     this.tableSizeView.InitVars();
                 }
             }
-            this.relationFK__ShoeFacto__Color__3F466844 = this.Relations["FK__ShoeFacto__Color__3F466844"];
-            this.relationFK__ShoeFacto__ShoeT__3D5E1FD2 = this.Relations["FK__ShoeFacto__ShoeT__3D5E1FD2"];
-            this.relationFK__ShoeFacto__Size___3E52440B = this.Relations["FK__ShoeFacto__Size___3E52440B"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -397,18 +388,6 @@ namespace Praktika_2 {
             base.Tables.Add(this.tableShoeView);
             this.tableSizeView = new SizeViewDataTable();
             base.Tables.Add(this.tableSizeView);
-            this.relationFK__ShoeFacto__Color__3F466844 = new global::System.Data.DataRelation("FK__ShoeFacto__Color__3F466844", new global::System.Data.DataColumn[] {
-                        this.tableColor.ID_ColorColumn}, new global::System.Data.DataColumn[] {
-                        this.tableShoeFactory.Color_IDColumn}, false);
-            this.Relations.Add(this.relationFK__ShoeFacto__Color__3F466844);
-            this.relationFK__ShoeFacto__ShoeT__3D5E1FD2 = new global::System.Data.DataRelation("FK__ShoeFacto__ShoeT__3D5E1FD2", new global::System.Data.DataColumn[] {
-                        this.tableShoe.ID_ShoeTypeColumn}, new global::System.Data.DataColumn[] {
-                        this.tableShoeFactory.ShoeType_IDColumn}, false);
-            this.Relations.Add(this.relationFK__ShoeFacto__ShoeT__3D5E1FD2);
-            this.relationFK__ShoeFacto__Size___3E52440B = new global::System.Data.DataRelation("FK__ShoeFacto__Size___3E52440B", new global::System.Data.DataColumn[] {
-                        this.tableSize.ID_SizeColumn}, new global::System.Data.DataColumn[] {
-                        this.tableShoeFactory.Size_IDColumn}, false);
-            this.Relations.Add(this.relationFK__ShoeFacto__Size___3E52440B);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1101,15 +1080,19 @@ namespace Praktika_2 {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class ShoeFactoryDataTable : global::System.Data.TypedTableBase<ShoeFactoryRow> {
             
-            private global::System.Data.DataColumn columnID_Product;
+            private global::System.Data.DataColumn _columnНомер_обуви_;
             
-            private global::System.Data.DataColumn columnShoeType_ID;
+            private global::System.Data.DataColumn _columnТип_обуви_;
             
-            private global::System.Data.DataColumn columnSize_ID;
+            private global::System.Data.DataColumn _columnНомер_размера_;
             
-            private global::System.Data.DataColumn columnColor_ID;
+            private global::System.Data.DataColumn _columnРазмер_;
             
-            private global::System.Data.DataColumn columnPrice;
+            private global::System.Data.DataColumn _columnНомер_цвета_;
+            
+            private global::System.Data.DataColumn _columnЦвет_;
+            
+            private global::System.Data.DataColumn _columnЦена_;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -1146,41 +1129,57 @@ namespace Praktika_2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn ID_ProductColumn {
+            public global::System.Data.DataColumn _Номер_обуви_Column {
                 get {
-                    return this.columnID_Product;
+                    return this._columnНомер_обуви_;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn ShoeType_IDColumn {
+            public global::System.Data.DataColumn _Тип_обуви_Column {
                 get {
-                    return this.columnShoeType_ID;
+                    return this._columnТип_обуви_;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Size_IDColumn {
+            public global::System.Data.DataColumn _Номер_размера_Column {
                 get {
-                    return this.columnSize_ID;
+                    return this._columnНомер_размера_;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Color_IDColumn {
+            public global::System.Data.DataColumn _Размер_Column {
                 get {
-                    return this.columnColor_ID;
+                    return this._columnРазмер_;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn PriceColumn {
+            public global::System.Data.DataColumn _Номер_цвета_Column {
                 get {
-                    return this.columnPrice;
+                    return this._columnНомер_цвета_;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn _Цвет_Column {
+                get {
+                    return this._columnЦвет_;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn _Цена_Column {
+                get {
+                    return this._columnЦена_;
                 }
             }
             
@@ -1221,33 +1220,19 @@ namespace Praktika_2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ShoeFactoryRow AddShoeFactoryRow(ShoeRow parentShoeRowByFK__ShoeFacto__ShoeT__3D5E1FD2, SizeRow parentSizeRowByFK__ShoeFacto__Size___3E52440B, ColorRow parentColorRowByFK__ShoeFacto__Color__3F466844, double Price) {
+            public ShoeFactoryRow AddShoeFactoryRow(string _Тип_обуви_, int _Размер_, string _Цвет_, double _Цена_) {
                 ShoeFactoryRow rowShoeFactoryRow = ((ShoeFactoryRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
+                        _Тип_обуви_,
                         null,
+                        _Размер_,
                         null,
-                        null,
-                        Price};
-                if ((parentShoeRowByFK__ShoeFacto__ShoeT__3D5E1FD2 != null)) {
-                    columnValuesArray[1] = parentShoeRowByFK__ShoeFacto__ShoeT__3D5E1FD2[0];
-                }
-                if ((parentSizeRowByFK__ShoeFacto__Size___3E52440B != null)) {
-                    columnValuesArray[2] = parentSizeRowByFK__ShoeFacto__Size___3E52440B[0];
-                }
-                if ((parentColorRowByFK__ShoeFacto__Color__3F466844 != null)) {
-                    columnValuesArray[3] = parentColorRowByFK__ShoeFacto__Color__3F466844[0];
-                }
+                        _Цвет_,
+                        _Цена_};
                 rowShoeFactoryRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowShoeFactoryRow);
                 return rowShoeFactoryRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ShoeFactoryRow FindByID_Product(int ID_Product) {
-                return ((ShoeFactoryRow)(this.Rows.Find(new object[] {
-                            ID_Product})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1267,38 +1252,67 @@ namespace Praktika_2 {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
-                this.columnID_Product = base.Columns["ID_Product"];
-                this.columnShoeType_ID = base.Columns["ShoeType_ID"];
-                this.columnSize_ID = base.Columns["Size_ID"];
-                this.columnColor_ID = base.Columns["Color_ID"];
-                this.columnPrice = base.Columns["Price"];
+                this._columnНомер_обуви_ = base.Columns["Номер обуви:"];
+                this._columnТип_обуви_ = base.Columns["Тип обуви:"];
+                this._columnНомер_размера_ = base.Columns["Номер размера:"];
+                this._columnРазмер_ = base.Columns["Размер:"];
+                this._columnНомер_цвета_ = base.Columns["Номер цвета:"];
+                this._columnЦвет_ = base.Columns["Цвет:"];
+                this._columnЦена_ = base.Columns["Цена:"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             private void InitClass() {
-                this.columnID_Product = new global::System.Data.DataColumn("ID_Product", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnID_Product);
-                this.columnShoeType_ID = new global::System.Data.DataColumn("ShoeType_ID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnShoeType_ID);
-                this.columnSize_ID = new global::System.Data.DataColumn("Size_ID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSize_ID);
-                this.columnColor_ID = new global::System.Data.DataColumn("Color_ID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnColor_ID);
-                this.columnPrice = new global::System.Data.DataColumn("Price", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPrice);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnID_Product}, true));
-                this.columnID_Product.AutoIncrement = true;
-                this.columnID_Product.AutoIncrementSeed = -1;
-                this.columnID_Product.AutoIncrementStep = -1;
-                this.columnID_Product.AllowDBNull = false;
-                this.columnID_Product.ReadOnly = true;
-                this.columnID_Product.Unique = true;
-                this.columnShoeType_ID.AllowDBNull = false;
-                this.columnSize_ID.AllowDBNull = false;
-                this.columnColor_ID.AllowDBNull = false;
-                this.columnPrice.AllowDBNull = false;
+                this._columnНомер_обуви_ = new global::System.Data.DataColumn("Номер обуви:", typeof(int), null, global::System.Data.MappingType.Element);
+                this._columnНомер_обуви_.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnНомер_обуви_");
+                this._columnНомер_обуви_.ExtendedProperties.Add("Generator_UserColumnName", "Номер обуви:");
+                base.Columns.Add(this._columnНомер_обуви_);
+                this._columnТип_обуви_ = new global::System.Data.DataColumn("Тип обуви:", typeof(string), null, global::System.Data.MappingType.Element);
+                this._columnТип_обуви_.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnТип_обуви_");
+                this._columnТип_обуви_.ExtendedProperties.Add("Generator_UserColumnName", "Тип обуви:");
+                base.Columns.Add(this._columnТип_обуви_);
+                this._columnНомер_размера_ = new global::System.Data.DataColumn("Номер размера:", typeof(int), null, global::System.Data.MappingType.Element);
+                this._columnНомер_размера_.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnНомер_размера_");
+                this._columnНомер_размера_.ExtendedProperties.Add("Generator_UserColumnName", "Номер размера:");
+                base.Columns.Add(this._columnНомер_размера_);
+                this._columnРазмер_ = new global::System.Data.DataColumn("Размер:", typeof(int), null, global::System.Data.MappingType.Element);
+                this._columnРазмер_.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnРазмер_");
+                this._columnРазмер_.ExtendedProperties.Add("Generator_UserColumnName", "Размер:");
+                base.Columns.Add(this._columnРазмер_);
+                this._columnНомер_цвета_ = new global::System.Data.DataColumn("Номер цвета:", typeof(int), null, global::System.Data.MappingType.Element);
+                this._columnНомер_цвета_.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnНомер_цвета_");
+                this._columnНомер_цвета_.ExtendedProperties.Add("Generator_UserColumnName", "Номер цвета:");
+                base.Columns.Add(this._columnНомер_цвета_);
+                this._columnЦвет_ = new global::System.Data.DataColumn("Цвет:", typeof(string), null, global::System.Data.MappingType.Element);
+                this._columnЦвет_.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnЦвет_");
+                this._columnЦвет_.ExtendedProperties.Add("Generator_UserColumnName", "Цвет:");
+                base.Columns.Add(this._columnЦвет_);
+                this._columnЦена_ = new global::System.Data.DataColumn("Цена:", typeof(double), null, global::System.Data.MappingType.Element);
+                this._columnЦена_.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnЦена_");
+                this._columnЦена_.ExtendedProperties.Add("Generator_UserColumnName", "Цена:");
+                base.Columns.Add(this._columnЦена_);
+                this._columnНомер_обуви_.AutoIncrement = true;
+                this._columnНомер_обуви_.AutoIncrementSeed = -1;
+                this._columnНомер_обуви_.AutoIncrementStep = -1;
+                this._columnНомер_обуви_.AllowDBNull = false;
+                this._columnНомер_обуви_.ReadOnly = true;
+                this._columnТип_обуви_.AllowDBNull = false;
+                this._columnТип_обуви_.MaxLength = 20;
+                this._columnНомер_размера_.AutoIncrement = true;
+                this._columnНомер_размера_.AutoIncrementSeed = -1;
+                this._columnНомер_размера_.AutoIncrementStep = -1;
+                this._columnНомер_размера_.AllowDBNull = false;
+                this._columnНомер_размера_.ReadOnly = true;
+                this._columnРазмер_.AllowDBNull = false;
+                this._columnНомер_цвета_.AutoIncrement = true;
+                this._columnНомер_цвета_.AutoIncrementSeed = -1;
+                this._columnНомер_цвета_.AutoIncrementStep = -1;
+                this._columnНомер_цвета_.AllowDBNull = false;
+                this._columnНомер_цвета_.ReadOnly = true;
+                this._columnЦвет_.AllowDBNull = false;
+                this._columnЦвет_.MaxLength = 20;
+                this._columnЦена_.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2912,17 +2926,6 @@ namespace Praktika_2 {
                     this[this.tableColor.ColorColumn] = value;
                 }
             }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ShoeFactoryRow[] GetShoeFactoryRows() {
-                if ((this.Table.ChildRelations["FK__ShoeFacto__Color__3F466844"] == null)) {
-                    return new ShoeFactoryRow[0];
-                }
-                else {
-                    return ((ShoeFactoryRow[])(base.GetChildRows(this.Table.ChildRelations["FK__ShoeFacto__Color__3F466844"])));
-                }
-            }
         }
         
         /// <summary>
@@ -2960,17 +2963,6 @@ namespace Praktika_2 {
                     this[this.tableShoe.ShoeTypeColumn] = value;
                 }
             }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ShoeFactoryRow[] GetShoeFactoryRows() {
-                if ((this.Table.ChildRelations["FK__ShoeFacto__ShoeT__3D5E1FD2"] == null)) {
-                    return new ShoeFactoryRow[0];
-                }
-                else {
-                    return ((ShoeFactoryRow[])(base.GetChildRows(this.Table.ChildRelations["FK__ShoeFacto__ShoeT__3D5E1FD2"])));
-                }
-            }
         }
         
         /// <summary>
@@ -2989,89 +2981,78 @@ namespace Praktika_2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int ID_Product {
+            public int _Номер_обуви_ {
                 get {
-                    return ((int)(this[this.tableShoeFactory.ID_ProductColumn]));
+                    return ((int)(this[this.tableShoeFactory._Номер_обуви_Column]));
                 }
                 set {
-                    this[this.tableShoeFactory.ID_ProductColumn] = value;
+                    this[this.tableShoeFactory._Номер_обуви_Column] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int ShoeType_ID {
+            public string _Тип_обуви_ {
                 get {
-                    return ((int)(this[this.tableShoeFactory.ShoeType_IDColumn]));
+                    return ((string)(this[this.tableShoeFactory._Тип_обуви_Column]));
                 }
                 set {
-                    this[this.tableShoeFactory.ShoeType_IDColumn] = value;
+                    this[this.tableShoeFactory._Тип_обуви_Column] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int Size_ID {
+            public int _Номер_размера_ {
                 get {
-                    return ((int)(this[this.tableShoeFactory.Size_IDColumn]));
+                    return ((int)(this[this.tableShoeFactory._Номер_размера_Column]));
                 }
                 set {
-                    this[this.tableShoeFactory.Size_IDColumn] = value;
+                    this[this.tableShoeFactory._Номер_размера_Column] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int Color_ID {
+            public int _Размер_ {
                 get {
-                    return ((int)(this[this.tableShoeFactory.Color_IDColumn]));
+                    return ((int)(this[this.tableShoeFactory._Размер_Column]));
                 }
                 set {
-                    this[this.tableShoeFactory.Color_IDColumn] = value;
+                    this[this.tableShoeFactory._Размер_Column] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public double Price {
+            public int _Номер_цвета_ {
                 get {
-                    return ((double)(this[this.tableShoeFactory.PriceColumn]));
+                    return ((int)(this[this.tableShoeFactory._Номер_цвета_Column]));
                 }
                 set {
-                    this[this.tableShoeFactory.PriceColumn] = value;
+                    this[this.tableShoeFactory._Номер_цвета_Column] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ColorRow ColorRow {
+            public string _Цвет_ {
                 get {
-                    return ((ColorRow)(this.GetParentRow(this.Table.ParentRelations["FK__ShoeFacto__Color__3F466844"])));
+                    return ((string)(this[this.tableShoeFactory._Цвет_Column]));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__ShoeFacto__Color__3F466844"]);
+                    this[this.tableShoeFactory._Цвет_Column] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ShoeRow ShoeRow {
+            public double _Цена_ {
                 get {
-                    return ((ShoeRow)(this.GetParentRow(this.Table.ParentRelations["FK__ShoeFacto__ShoeT__3D5E1FD2"])));
+                    return ((double)(this[this.tableShoeFactory._Цена_Column]));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__ShoeFacto__ShoeT__3D5E1FD2"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public SizeRow SizeRow {
-                get {
-                    return ((SizeRow)(this.GetParentRow(this.Table.ParentRelations["FK__ShoeFacto__Size___3E52440B"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__ShoeFacto__Size___3E52440B"]);
+                    this[this.tableShoeFactory._Цена_Column] = value;
                 }
             }
         }
@@ -3109,17 +3090,6 @@ namespace Praktika_2 {
                 }
                 set {
                     this[this.tableSize.SizeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ShoeFactoryRow[] GetShoeFactoryRows() {
-                if ((this.Table.ChildRelations["FK__ShoeFacto__Size___3E52440B"] == null)) {
-                    return new ShoeFactoryRow[0];
-                }
-                else {
-                    return ((ShoeFactoryRow[])(base.GetChildRows(this.Table.ChildRelations["FK__ShoeFacto__Size___3E52440B"])));
                 }
             }
         }
@@ -4538,49 +4508,14 @@ namespace Praktika_2.Praktika1DataSetTableAdapters {
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "ShoeFactory";
-            tableMapping.ColumnMappings.Add("ID_Product", "ID_Product");
-            tableMapping.ColumnMappings.Add("ShoeType_ID", "ShoeType_ID");
-            tableMapping.ColumnMappings.Add("Size_ID", "Size_ID");
-            tableMapping.ColumnMappings.Add("Color_ID", "Color_ID");
-            tableMapping.ColumnMappings.Add("Price", "Price");
+            tableMapping.ColumnMappings.Add("Номер обуви:", "Номер обуви:");
+            tableMapping.ColumnMappings.Add("Тип обуви:", "Тип обуви:");
+            tableMapping.ColumnMappings.Add("Номер размера:", "Номер размера:");
+            tableMapping.ColumnMappings.Add("Размер:", "Размер:");
+            tableMapping.ColumnMappings.Add("Номер цвета:", "Номер цвета:");
+            tableMapping.ColumnMappings.Add("Цвет:", "Цвет:");
+            tableMapping.ColumnMappings.Add("Цена:", "Цена:");
             this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[ShoeFactory] WHERE (([ID_Product] = @Original_ID_Product) AND " +
-                "([ShoeType_ID] = @Original_ShoeType_ID) AND ([Size_ID] = @Original_Size_ID) AND " +
-                "([Color_ID] = @Original_Color_ID) AND ([Price] = @Original_Price))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_Product", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Product", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ShoeType_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ShoeType_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Size_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Size_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Color_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Color_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Price", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Price", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[ShoeFactory] ([ShoeType_ID], [Size_ID], [Color_ID], [Price]) V" +
-                "ALUES (@ShoeType_ID, @Size_ID, @Color_ID, @Price);\r\nSELECT ID_Product, ShoeType_" +
-                "ID, Size_ID, Color_ID, Price FROM ShoeFactory WHERE (ID_Product = SCOPE_IDENTITY" +
-                "())";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ShoeType_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ShoeType_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Size_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Size_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Color_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Color_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Price", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Price", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[ShoeFactory] SET [ShoeType_ID] = @ShoeType_ID, [Size_ID] = @Size_ID, [Color_ID] = @Color_ID, [Price] = @Price WHERE (([ID_Product] = @Original_ID_Product) AND ([ShoeType_ID] = @Original_ShoeType_ID) AND ([Size_ID] = @Original_Size_ID) AND ([Color_ID] = @Original_Color_ID) AND ([Price] = @Original_Price));
-SELECT ID_Product, ShoeType_ID, Size_ID, Color_ID, Price FROM ShoeFactory WHERE (ID_Product = @ID_Product)";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ShoeType_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ShoeType_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Size_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Size_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Color_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Color_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Price", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Price", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_Product", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Product", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ShoeType_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ShoeType_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Size_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Size_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Color_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Color_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Price", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Price", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_Product", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Product", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4596,7 +4531,11 @@ SELECT ID_Product, ShoeType_ID, Size_ID, Color_ID, Price FROM ShoeFactory WHERE 
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ID_Product, ShoeType_ID, Size_ID, Color_ID, Price FROM dbo.ShoeFactory";
+            this._commandCollection[0].CommandText = @"select [Shoe].ID_ShoeType AS 'Номер обуви:', [Shoe].[ShoeType] AS 'Тип обуви:', [Size].ID_Size AS 'Номер размера:', [Size].[Size] AS 'Размер:', [Color].ID_Color AS 'Номер цвета:', [Color].[Color] AS 'Цвет:', [ShoeFactory].[Price] AS 'Цена:'
+from [ShoeFactory] 
+inner join [Shoe] on [ShoeFactory].[ShoeType_ID] = [Shoe].[ID_ShoeType]
+inner join [Size] on [ShoeFactory].[Size_ID] = [Size].[ID_Size]
+inner join [Color] on [ShoeFactory].[Color_ID] = [Color].[ID_Color]";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
@@ -4647,125 +4586,6 @@ SELECT ID_Product, ShoeType_ID, Size_ID, Color_ID, Price FROM ShoeFactory WHERE 
             Praktika1DataSet.ShoeFactoryDataTable dataTable = new Praktika1DataSet.ShoeFactoryDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(Praktika1DataSet.ShoeFactoryDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(Praktika1DataSet dataSet) {
-            return this.Adapter.Update(dataSet, "ShoeFactory");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_ID_Product, int Original_ShoeType_ID, int Original_Size_ID, int Original_Color_ID, double Original_Price) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID_Product));
-            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_ShoeType_ID));
-            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_Size_ID));
-            this.Adapter.DeleteCommand.Parameters[3].Value = ((int)(Original_Color_ID));
-            this.Adapter.DeleteCommand.Parameters[4].Value = ((double)(Original_Price));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int ShoeType_ID, int Size_ID, int Color_ID, double Price) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(ShoeType_ID));
-            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(Size_ID));
-            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(Color_ID));
-            this.Adapter.InsertCommand.Parameters[3].Value = ((double)(Price));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int ShoeType_ID, int Size_ID, int Color_ID, double Price, int Original_ID_Product, int Original_ShoeType_ID, int Original_Size_ID, int Original_Color_ID, double Original_Price, int ID_Product) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(ShoeType_ID));
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(Size_ID));
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Color_ID));
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((double)(Price));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_ID_Product));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_ShoeType_ID));
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_Size_ID));
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_Color_ID));
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((double)(Original_Price));
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(ID_Product));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int ShoeType_ID, int Size_ID, int Color_ID, double Price, int Original_ID_Product, int Original_ShoeType_ID, int Original_Size_ID, int Original_Color_ID, double Original_Price) {
-            return this.Update(ShoeType_ID, Size_ID, Color_ID, Price, Original_ID_Product, Original_ShoeType_ID, Original_Size_ID, Original_Color_ID, Original_Price, Original_ID_Product);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5928,8 +5748,6 @@ SELECT ID_Product, ShoeType_ID, Size_ID, Color_ID, Price FROM ShoeFactory WHERE 
         
         private ShoeTableAdapter _shoeTableAdapter;
         
-        private ShoeFactoryTableAdapter _shoeFactoryTableAdapter;
-        
         private SizeTableAdapter _sizeTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
@@ -5980,20 +5798,6 @@ SELECT ID_Product, ShoeType_ID, Size_ID, Color_ID, Price FROM ShoeFactory WHERE 
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public ShoeFactoryTableAdapter ShoeFactoryTableAdapter {
-            get {
-                return this._shoeFactoryTableAdapter;
-            }
-            set {
-                this._shoeFactoryTableAdapter = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
         public SizeTableAdapter SizeTableAdapter {
             get {
                 return this._sizeTableAdapter;
@@ -6030,10 +5834,6 @@ SELECT ID_Product, ShoeType_ID, Size_ID, Color_ID, Price FROM ShoeFactory WHERE 
                             && (this._shoeTableAdapter.Connection != null))) {
                     return this._shoeTableAdapter.Connection;
                 }
-                if (((this._shoeFactoryTableAdapter != null) 
-                            && (this._shoeFactoryTableAdapter.Connection != null))) {
-                    return this._shoeFactoryTableAdapter.Connection;
-                }
                 if (((this._sizeTableAdapter != null) 
                             && (this._sizeTableAdapter.Connection != null))) {
                     return this._sizeTableAdapter.Connection;
@@ -6055,9 +5855,6 @@ SELECT ID_Product, ShoeType_ID, Size_ID, Color_ID, Price FROM ShoeFactory WHERE 
                     count = (count + 1);
                 }
                 if ((this._shoeTableAdapter != null)) {
-                    count = (count + 1);
-                }
-                if ((this._shoeFactoryTableAdapter != null)) {
                     count = (count + 1);
                 }
                 if ((this._sizeTableAdapter != null)) {
@@ -6101,15 +5898,6 @@ SELECT ID_Product, ShoeType_ID, Size_ID, Color_ID, Price FROM ShoeFactory WHERE 
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._shoeFactoryTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.ShoeFactory.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._shoeFactoryTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             return result;
         }
         
@@ -6144,14 +5932,6 @@ SELECT ID_Product, ShoeType_ID, Size_ID, Color_ID, Price FROM ShoeFactory WHERE 
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._shoeFactoryTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.ShoeFactory.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._shoeFactoryTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             return result;
         }
         
@@ -6162,14 +5942,6 @@ SELECT ID_Product, ShoeType_ID, Size_ID, Color_ID, Price FROM ShoeFactory WHERE 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private int UpdateDeletedRows(Praktika1DataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._shoeFactoryTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.ShoeFactory.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._shoeFactoryTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._sizeTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Size.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -6243,11 +6015,6 @@ SELECT ID_Product, ShoeType_ID, Size_ID, Color_ID, Price FROM ShoeFactory WHERE 
                 throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
                         "r, должны использовать одинаковую строку подключения.");
             }
-            if (((this._shoeFactoryTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._shoeFactoryTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
-                        "r, должны использовать одинаковую строку подключения.");
-            }
             if (((this._sizeTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._sizeTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
@@ -6301,15 +6068,6 @@ SELECT ID_Product, ShoeType_ID, Size_ID, Color_ID, Price FROM ShoeFactory WHERE 
                     if (this._shoeTableAdapter.Adapter.AcceptChangesDuringUpdate) {
                         this._shoeTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this._shoeTableAdapter.Adapter);
-                    }
-                }
-                if ((this._shoeFactoryTableAdapter != null)) {
-                    revertConnections.Add(this._shoeFactoryTableAdapter, this._shoeFactoryTableAdapter.Connection);
-                    this._shoeFactoryTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._shoeFactoryTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._shoeFactoryTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._shoeFactoryTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._shoeFactoryTableAdapter.Adapter);
                     }
                 }
                 if ((this._sizeTableAdapter != null)) {
@@ -6386,10 +6144,6 @@ SELECT ID_Product, ShoeType_ID, Size_ID, Color_ID, Price FROM ShoeFactory WHERE 
                 if ((this._shoeTableAdapter != null)) {
                     this._shoeTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._shoeTableAdapter]));
                     this._shoeTableAdapter.Transaction = null;
-                }
-                if ((this._shoeFactoryTableAdapter != null)) {
-                    this._shoeFactoryTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._shoeFactoryTableAdapter]));
-                    this._shoeFactoryTableAdapter.Transaction = null;
                 }
                 if ((this._sizeTableAdapter != null)) {
                     this._sizeTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._sizeTableAdapter]));

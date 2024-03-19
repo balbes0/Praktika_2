@@ -3,6 +3,7 @@ using System.Data;
 using System.Windows;
 using System.Windows.Controls;
 using Praktika_2.Praktika1DataSetTableAdapters;
+using static MaterialDesignThemes.Wpf.Theme;
 
 namespace Praktika_2
 {
@@ -28,31 +29,34 @@ namespace Praktika_2
             if (selectedTable != "")
             {
                 nametable = selectedTable;
-                if (selectedTable == "Color")
+                if (selectedTable == "Цвет")
                 {
                     DataGridDS.ItemsSource = colorViewTableAdapter.GetData();
                 }
-                else if (selectedTable == "Shoe")
+                else if (selectedTable == "Обувь")
                 {
                     DataGridDS.ItemsSource = shoeViewTableAdapter.GetData();
                 }
-                else if (selectedTable == "ShoeFactory")
+                else if (selectedTable == "Обувная фабрика")
                 {
                     DataGridDS.ItemsSource = shoeFactoryViewTableAdapter.GetData();
                     ShoeTypeIDCMBX.ItemsSource = shoeTableAdapter.GetData();
                     ShoeTypeIDCMBX.DisplayMemberPath = "ShoeType";
                     ColorIDCMBX.ItemsSource = colorTableAdapter.GetData();
-                    ColorIDCMBX.DisplayMemberPath = "Color";
+                    ColorIDCMBX.DisplayMemberPath = "Цвет";
                     SizeIDCMBX.ItemsSource= sizeTableAdapter.GetData();
-                    SizeIDCMBX.DisplayMemberPath = "Size";
+                    SizeIDCMBX.DisplayMemberPath = "Размер";
                     TextBoxGridDS.Visibility = Visibility.Hidden;
                     ShoeFactoryGridDS.Visibility = Visibility.Visible;
                 }
-                else if (selectedTable == "Size")
+                else if (selectedTable == "Размер")
                 {
                     DataGridDS.ItemsSource = sizeViewTableAdapter.GetData();
                 }
-
+                if (selectedTable == "Объединенная таблица")
+                {
+                    DataGridDS.ItemsSource = shoeFactoryTableAdapter.GetData();
+                }
                 DataGridDS.Visibility = Visibility.Visible;
                 LabelDS.Visibility = Visibility.Hidden;
             }
@@ -62,55 +66,56 @@ namespace Praktika_2
             object id = (DataGridDS.SelectedItem as DataRowView).Row[0];
             if (nametable != "")
             {
-                if (nametable == "Color")
+                if (nametable == "Цвет")
                 {
                     colorTableAdapter.UpdateQueryColor(editedText, Convert.ToInt32(id));
                     DataGridDS.ItemsSource = colorViewTableAdapter.GetData();
                 }
-                else if (nametable == "Shoe")
+                else if (nametable == "Обувь")
                 {
                     shoeTableAdapter.UpdateQueryShoeType(editedText, Convert.ToInt32(id));
                     DataGridDS.ItemsSource = shoeViewTableAdapter.GetData();
                 }
-                else if (nametable == "Size")
+                else if (nametable == "Размер")
                 {
                     int size = Convert.ToInt32(editedText);
                     sizeTableAdapter.UpdateQuerySize(size, Convert.ToInt32(id));
                     DataGridDS.ItemsSource = sizeViewTableAdapter.GetData();
                 }
-                else if (nametable == "ShoeFactory")
+                else if (nametable == "Обувная фабрика")
                 {
-                    shoeFactoryTableAdapter.UpdateQueryShoeFactory(Convert.ToInt32(ShoeTypeIDCMBX.Text), Convert.ToInt32(SizeIDCMBX.Text), Convert.ToInt32(ColorIDCMBX.Text), Convert.ToInt32(PriceTBX.Text), Convert.ToInt32(id));
+                    shoeFactoryTableAdapter.UpdateQueryShoeFactory(selectedShoeTypeID, selectedSizeID, selectedColorID, Convert.ToInt32(PriceTBX.Text), Convert.ToInt32(id));
                     DataGridDS.ItemsSource = shoeFactoryViewTableAdapter.GetData();
                 }
+                DataGridDS.Columns[0].Visibility = Visibility.Collapsed;
             }
         }
         public void AddNewData()
         {
-            if (nametable == "Color")
-            {
-                colorTableAdapter.InsertQueryColor(TextBoxDS.Text);
-                DataGridDS.ItemsSource = colorViewTableAdapter.GetData();
-            }
-            else if (nametable == "Shoe")
-            {
-                shoeTableAdapter.InsertQueryShoeType(TextBoxDS.Text);
-                DataGridDS.ItemsSource = shoeViewTableAdapter.GetData();
-            }
-            else if (nametable == "Size")
-            {
-                int size = Convert.ToInt32(TextBoxDS.Text);
-                sizeTableAdapter.InsertQuerySize(size);
-                DataGridDS.ItemsSource = sizeViewTableAdapter.GetData();
-            }
-            else if (nametable == "ShoeFactory")
-            {
-                shoeFactoryTableAdapter.InsertQueryShoeFactory(selectedShoeTypeID, selectedSizeID, selectedColorID, Convert.ToInt32(PriceTBX.Text));
-                DataGridDS.ItemsSource= shoeFactoryViewTableAdapter.GetData();
-            }
-            else if (nametable == "ShoeInventory" || nametable == "ShoeView" || nametable == "SizeView" || nametable == "ColorView")
-            {
-                MessageBox.Show("Эту таблицу менять нельзя!");
+            if (nametable != "")
+            {   
+                if (nametable == "Цвет")
+                {
+                    colorTableAdapter.InsertQueryColor(TextBoxDS.Text);
+                    DataGridDS.ItemsSource = colorViewTableAdapter.GetData();
+                }
+                else if (nametable == "Обувь")
+                {
+                    shoeTableAdapter.InsertQueryShoeType(TextBoxDS.Text);
+                    DataGridDS.ItemsSource = shoeViewTableAdapter.GetData();
+                }
+                else if (nametable == "Размер")
+                {
+                    int size = Convert.ToInt32(TextBoxDS.Text);
+                    sizeTableAdapter.InsertQuerySize(size);
+                    DataGridDS.ItemsSource = sizeViewTableAdapter.GetData();
+                }
+                else if (nametable == "Обувная фабрика")
+                {
+                    shoeFactoryTableAdapter.InsertQueryShoeFactory(selectedShoeTypeID, selectedSizeID, selectedColorID, Convert.ToInt32(PriceTBX.Text));
+                    DataGridDS.ItemsSource = shoeFactoryViewTableAdapter.GetData();
+                }
+                DataGridDS.Columns[0].Visibility = Visibility.Collapsed;
             }
         }
         public void SaveChangesWithButton()
@@ -123,26 +128,27 @@ namespace Praktika_2
             object id = (DataGridDS.SelectedItem as DataRowView).Row[0];
             if (nametable != "")
             {
-                if (nametable == "Color")
+                if (nametable == "Цвет")
                 {
                     colorTableAdapter.DeleteQueryColor(Convert.ToInt32(id));
                     DataGridDS.ItemsSource = colorViewTableAdapter.GetData();
                 }
-                else if (nametable == "Shoe")
+                else if (nametable == "Обувь")
                 {
                     shoeTableAdapter.DeleteQueryShoeType(Convert.ToInt32(id));
                     DataGridDS.ItemsSource = shoeViewTableAdapter.GetData();
                 }
-                else if (nametable == "Size")
+                else if (nametable == "Размер")
                 {
                     sizeTableAdapter.DeleteQuerySize(Convert.ToInt32(id));
                     DataGridDS.ItemsSource = sizeViewTableAdapter.GetData();
                 }
-                else if (nametable == "ShoeFactory")
+                else if (nametable == "Обувная фабрика")
                 {
                     shoeFactoryTableAdapter.DeleteQueryShoeFactory(Convert.ToInt32(id));
                     DataGridDS.ItemsSource = shoeFactoryViewTableAdapter.GetData();
                 }
+                DataGridDS.Columns[0].Visibility = Visibility.Collapsed;
             }
         }
 
@@ -162,6 +168,19 @@ namespace Praktika_2
         {
             DataRowView selectedRow = (DataRowView)ColorIDCMBX.SelectedItem;
             selectedColorID = (int)selectedRow["ID_Color"];
+        }
+
+        private void DataGridDS_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (nametable != "")
+            {
+                DataGridDS.Columns[0].Visibility = Visibility.Collapsed;
+            }
+            if (nametable == "Объединенная таблица")
+            {
+                DataGridDS.Columns[2].Visibility = Visibility.Collapsed;
+                DataGridDS.Columns[4].Visibility = Visibility.Collapsed;
+            }
         }
     }
 }

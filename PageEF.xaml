@@ -18,10 +18,18 @@
         <Grid Grid.Row="0" Background="Black">
             <Label Foreground="DarkGray" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center">Entity Framework</Label>
         </Grid>
-        <DataGrid CanUserAddRows="False" Visibility="Hidden" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Background="DarkGray" Foreground="Black" x:Name="DataGridEF"/>
+        <DataGrid CanUserAddRows="False" Visibility="Hidden" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Background="DarkGray" Foreground="Black" x:Name="DataGridEF" Loaded="DataGridEF_Loaded"/>
+        <DataGrid AutoGenerateColumns="False" CanUserAddRows="False" Visibility="Hidden" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Background="DarkGray" Foreground="Black" x:Name="DataGridAllTables">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Shoe.ShoeType}" Header="Тип обуви:"/>
+                <DataGridTextColumn Binding="{Binding Color.Color1}" Header="Цвет:"/>
+                <DataGridTextColumn Binding="{Binding Size.Size1}" Header="Размер:"/>
+                <DataGridTextColumn Binding="{Binding Price}" Header="Цена:"/>
+            </DataGrid.Columns>
+        </DataGrid>
         <Label Grid.Row="1" Foreground="DarkGray" FontSize="15" Margin="20,20,0,0" Width="190" Height="40" VerticalAlignment="Top" HorizontalAlignment="Left" x:Name="LabelEF">Выберите таблицу</Label>
         <Grid Grid.Row="2" x:Name="GridTextBoxEF" Visibility="Hidden">
-            <TextBox Foreground="DarkGray" VerticalContentAlignment="Center" Margin="10, 5, 10, 5" x:Name="TextBoxEF"/>
+            <TextBox materialDesign:HintAssist.Hint="Новое значение" Foreground="DarkGray" VerticalContentAlignment="Center" Margin="10, 5, 10, 5" x:Name="TextBoxEF"/>
         </Grid>
         <Grid Grid.Row="2" x:Name="GridComboBoxesEF" Visibility="Hidden" Margin="10, 0, 10, 0">
             <Grid.ColumnDefinitions>
@@ -30,10 +38,10 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <ComboBox x:Name="ShoeTypeIDCMBX" Grid.Column="0" materialDesign:HintAssist.Hint="ShoeTypeID" Foreground="DarkGray" VerticalContentAlignment="Center" SelectionChanged="ShoeTypeIDCMBX_SelectionChanged"></ComboBox>
-            <ComboBox x:Name="SizeIDCMBX" Grid.Column="1" materialDesign:HintAssist.Hint="SizeID" Foreground="DarkGray" VerticalContentAlignment="Center" SelectionChanged="SizeIDCMBX_SelectionChanged"></ComboBox>
-            <ComboBox x:Name="ColorIDCMBX" Grid.Column="2" materialDesign:HintAssist.Hint="ColorID" Foreground="DarkGray" VerticalContentAlignment="Center" SelectionChanged="ColorIDCMBX_SelectionChanged"></ComboBox>
-            <TextBox x:Name="PriceTBX" Grid.Column="3" materialDesign:HintAssist.Hint="Price" Foreground="DarkGray" VerticalContentAlignment="Center"></TextBox>
+            <ComboBox x:Name="ShoeTypeIDCMBX" Grid.Column="0" materialDesign:HintAssist.Hint="Обувь" Foreground="DarkGray" VerticalContentAlignment="Center" SelectionChanged="ShoeTypeIDCMBX_SelectionChanged"></ComboBox>
+            <ComboBox x:Name="SizeIDCMBX" Grid.Column="1" materialDesign:HintAssist.Hint="Размер" Foreground="DarkGray" VerticalContentAlignment="Center" SelectionChanged="SizeIDCMBX_SelectionChanged"></ComboBox>
+            <ComboBox x:Name="ColorIDCMBX" Grid.Column="2" materialDesign:HintAssist.Hint="Цвет" Foreground="DarkGray" VerticalContentAlignment="Center" SelectionChanged="ColorIDCMBX_SelectionChanged"></ComboBox>
+            <TextBox x:Name="PriceTBX" Grid.Column="3" materialDesign:HintAssist.Hint="Цена" Foreground="DarkGray" VerticalContentAlignment="Center"></TextBox>
         </Grid>
     </Grid>
 </Page>

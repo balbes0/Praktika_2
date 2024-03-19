@@ -11,7 +11,7 @@ namespace Praktika_2
         private PageEF currentPageEF;
         string selectedPage;
         string selectedTable = "";
-        List<string> tableNames = new List<string>() { "Color", "Shoe", "ShoeFactory", "Size"};
+        List<string> tableNames = new List<string>() { "Цвет", "Обувь", "Обувная фабрика", "Размер", "Объединенная таблица" };
         public MainWindow()
         {
             InitializeComponent();
@@ -33,7 +33,7 @@ namespace Praktika_2
         private void ComboBoxChangeTable_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             selectedTable = ComboBoxChangeTable.Items[ComboBoxChangeTable.SelectedIndex] as string;
-            if (selectedTable == "ShoeView" || selectedTable == "SizeView" || selectedTable == "ColorView" || selectedTable == "ShoeInventory")
+            if (selectedTable == "Объединенная таблица")
             {
                 AddButton.Visibility = Visibility.Collapsed;
                 DeleteDataButton.Visibility = Visibility.Collapsed;

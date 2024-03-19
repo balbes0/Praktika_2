@@ -53,7 +53,7 @@ SELECT ID_Color, Color FROM Color WHERE (ID_Color = @ID_Color)</CommandText>
               <Mapping SourceColumn="Color" DataSetColumn="Color" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="Praktika1ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteQueryColor" Modifier="Public" Name="DeleteQueryColor" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="DeleteQueryColor">
+              <DbSource ConnectionRef="Praktika1ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteQueryColor" Modifier="Public" Name="DeleteQueryColor" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="DeleteQueryColor">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>DELETE FROM [dbo].[Color] WHERE ([ID_Color] = @Original_ID_Color)</CommandText>
@@ -63,7 +63,7 @@ SELECT ID_Color, Color FROM Color WHERE (ID_Color = @ID_Color)</CommandText>
                   </DbCommand>
                 </DeleteCommand>
               </DbSource>
-              <DbSource ConnectionRef="Praktika1ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertQueryColor" Modifier="Public" Name="InsertQueryColor" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="InsertQueryColor">
+              <DbSource ConnectionRef="Praktika1ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertQueryColor" Modifier="Public" Name="InsertQueryColor" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="InsertQueryColor">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO [dbo].[Color] ([Color]) VALUES (@Color);</CommandText>
@@ -144,7 +144,7 @@ SELECT ID_ShoeType, ShoeType FROM Shoe WHERE (ID_ShoeType = @ID_ShoeType)</Comma
                   </DbCommand>
                 </DeleteCommand>
               </DbSource>
-              <DbSource ConnectionRef="Praktika1ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertQueryShoeType" Modifier="Public" Name="InsertQueryShoeType" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="InsertQueryShoeType">
+              <DbSource ConnectionRef="Praktika1ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertQueryShoeType" Modifier="Public" Name="InsertQueryShoeType" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="InsertQueryShoeType">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO [dbo].[Shoe] ([ShoeType]) VALUES (@ShoeType);</CommandText>
@@ -154,7 +154,7 @@ SELECT ID_ShoeType, ShoeType FROM Shoe WHERE (ID_ShoeType = @ID_ShoeType)</Comma
                   </DbCommand>
                 </InsertCommand>
               </DbSource>
-              <DbSource ConnectionRef="Praktika1ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateQueryShoeType" Modifier="Public" Name="UpdateQueryShoeType" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="UpdateQueryShoeType">
+              <DbSource ConnectionRef="Praktika1ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateQueryShoeType" Modifier="Public" Name="UpdateQueryShoeType" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="UpdateQueryShoeType">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE       Shoe
@@ -171,63 +171,27 @@ WHERE        (ID_ShoeType = @Original_ID_ShoeType)</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ShoeFactoryTableAdapter" GeneratorDataComponentClassName="ShoeFactoryTableAdapter" Name="ShoeFactory" UserDataComponentName="ShoeFactoryTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="Praktika1ConnectionString (Settings)" DbObjectName="Praktika1.dbo.ShoeFactory" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
-                <DeleteCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>DELETE FROM [dbo].[ShoeFactory] WHERE (([ID_Product] = @Original_ID_Product) AND ([ShoeType_ID] = @Original_ShoeType_ID) AND ([Size_ID] = @Original_Size_ID) AND ([Color_ID] = @Original_Color_ID) AND ([Price] = @Original_Price))</CommandText>
-                    <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_ID_Product" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ID_Product" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_ShoeType_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ShoeType_ID" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Size_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Size_ID" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Color_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Color_ID" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_Price" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="Price" SourceColumnNullMapping="false" SourceVersion="Original" />
-                    </Parameters>
-                  </DbCommand>
-                </DeleteCommand>
-                <InsertCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>INSERT INTO [dbo].[ShoeFactory] ([ShoeType_ID], [Size_ID], [Color_ID], [Price]) VALUES (@ShoeType_ID, @Size_ID, @Color_ID, @Price);
-SELECT ID_Product, ShoeType_ID, Size_ID, Color_ID, Price FROM ShoeFactory WHERE (ID_Product = SCOPE_IDENTITY())</CommandText>
-                    <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@ShoeType_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ShoeType_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Size_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Size_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Color_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Color_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Price" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="Price" SourceColumnNullMapping="false" SourceVersion="Current" />
-                    </Parameters>
-                  </DbCommand>
-                </InsertCommand>
+              <DbSource ConnectionRef="Praktika1ConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT ID_Product, ShoeType_ID, Size_ID, Color_ID, Price FROM dbo.ShoeFactory</CommandText>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select [Shoe].ID_ShoeType AS 'Номер обуви:', [Shoe].[ShoeType] AS 'Тип обуви:', [Size].ID_Size AS 'Номер размера:', [Size].[Size] AS 'Размер:', [Color].ID_Color AS 'Номер цвета:', [Color].[Color] AS 'Цвет:', [ShoeFactory].[Price] AS 'Цена:'
+from [ShoeFactory] 
+inner join [Shoe] on [ShoeFactory].[ShoeType_ID] = [Shoe].[ID_ShoeType]
+inner join [Size] on [ShoeFactory].[Size_ID] = [Size].[ID_Size]
+inner join [Color] on [ShoeFactory].[Color_ID] = [Color].[ID_Color]</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
-                <UpdateCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>UPDATE [dbo].[ShoeFactory] SET [ShoeType_ID] = @ShoeType_ID, [Size_ID] = @Size_ID, [Color_ID] = @Color_ID, [Price] = @Price WHERE (([ID_Product] = @Original_ID_Product) AND ([ShoeType_ID] = @Original_ShoeType_ID) AND ([Size_ID] = @Original_Size_ID) AND ([Color_ID] = @Original_Color_ID) AND ([Price] = @Original_Price));
-SELECT ID_Product, ShoeType_ID, Size_ID, Color_ID, Price FROM ShoeFactory WHERE (ID_Product = @ID_Product)</CommandText>
-                    <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@ShoeType_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ShoeType_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Size_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Size_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Color_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Color_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Price" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="Price" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_ID_Product" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ID_Product" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_ShoeType_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ShoeType_ID" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Size_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Size_ID" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Color_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Color_ID" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_Price" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="Price" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="ID_Product" ColumnName="ID_Product" DataSourceName="Praktika1.dbo.ShoeFactory" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@ID_Product" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="ID_Product" SourceColumnNullMapping="false" SourceVersion="Current" />
-                    </Parameters>
-                  </DbCommand>
-                </UpdateCommand>
               </DbSource>
             </MainSource>
             <Mappings>
-              <Mapping SourceColumn="ID_Product" DataSetColumn="ID_Product" />
-              <Mapping SourceColumn="ShoeType_ID" DataSetColumn="ShoeType_ID" />
-              <Mapping SourceColumn="Size_ID" DataSetColumn="Size_ID" />
-              <Mapping SourceColumn="Color_ID" DataSetColumn="Color_ID" />
-              <Mapping SourceColumn="Price" DataSetColumn="Price" />
+              <Mapping SourceColumn="Номер обуви:" DataSetColumn="Номер обуви:" />
+              <Mapping SourceColumn="Тип обуви:" DataSetColumn="Тип обуви:" />
+              <Mapping SourceColumn="Номер размера:" DataSetColumn="Номер размера:" />
+              <Mapping SourceColumn="Размер:" DataSetColumn="Размер:" />
+              <Mapping SourceColumn="Номер цвета:" DataSetColumn="Номер цвета:" />
+              <Mapping SourceColumn="Цвет:" DataSetColumn="Цвет:" />
+              <Mapping SourceColumn="Цена:" DataSetColumn="Цена:" />
             </Mappings>
             <Sources>
               <DbSource ConnectionRef="Praktika1ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteQueryShoeFactory" Modifier="Public" Name="DeleteQueryShoeFactory" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="DeleteQueryShoeFactory">
@@ -240,7 +204,7 @@ SELECT ID_Product, ShoeType_ID, Size_ID, Color_ID, Price FROM ShoeFactory WHERE 
                   </DbCommand>
                 </DeleteCommand>
               </DbSource>
-              <DbSource ConnectionRef="Praktika1ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertQueryShoeFactory" Modifier="Public" Name="InsertQueryShoeFactory" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="InsertQueryShoeFactory">
+              <DbSource ConnectionRef="Praktika1ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertQueryShoeFactory" Modifier="Public" Name="InsertQueryShoeFactory" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="InsertQueryShoeFactory">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO [dbo].[ShoeFactory] ([ShoeType_ID], [Size_ID], [Color_ID], [Price]) VALUES (@ShoeType_ID, @Size_ID, @Color_ID, @Price);</CommandText>
@@ -253,7 +217,7 @@ SELECT ID_Product, ShoeType_ID, Size_ID, Color_ID, Price FROM ShoeFactory WHERE 
                   </DbCommand>
                 </InsertCommand>
               </DbSource>
-              <DbSource ConnectionRef="Praktika1ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateQueryShoeFactory" Modifier="Public" Name="UpdateQueryShoeFactory" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="UpdateQueryShoeFactory">
+              <DbSource ConnectionRef="Praktika1ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateQueryShoeFactory" Modifier="Public" Name="UpdateQueryShoeFactory" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="UpdateQueryShoeFactory">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE       ShoeFactory
@@ -317,7 +281,7 @@ SELECT ID_Size, Size FROM Size WHERE (ID_Size = @ID_Size)</CommandText>
               <Mapping SourceColumn="Size" DataSetColumn="Size" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="Praktika1ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteQuerySize" Modifier="Public" Name="DeleteQuerySize" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="DeleteQuerySize">
+              <DbSource ConnectionRef="Praktika1ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteQuerySize" Modifier="Public" Name="DeleteQuerySize" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="DeleteQuerySize">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>DELETE FROM [dbo].[Size] WHERE ([ID_Size] = @Original_ID_Size)</CommandText>
@@ -327,7 +291,7 @@ SELECT ID_Size, Size FROM Size WHERE (ID_Size = @ID_Size)</CommandText>
                   </DbCommand>
                 </DeleteCommand>
               </DbSource>
-              <DbSource ConnectionRef="Praktika1ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertQuerySize" Modifier="Public" Name="InsertQuerySize" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="InsertQuerySize">
+              <DbSource ConnectionRef="Praktika1ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertQuerySize" Modifier="Public" Name="InsertQuerySize" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="InsertQuerySize">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO [dbo].[Size] ([Size]) VALUES (@Size);</CommandText>
@@ -337,7 +301,7 @@ SELECT ID_Size, Size FROM Size WHERE (ID_Size = @ID_Size)</CommandText>
                   </DbCommand>
                 </InsertCommand>
               </DbSource>
-              <DbSource ConnectionRef="Praktika1ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateQuerySize" Modifier="Public" Name="UpdateQuerySize" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="UpdateQuerySize">
+              <DbSource ConnectionRef="Praktika1ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateQuerySize" Modifier="Public" Name="UpdateQuerySize" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="UpdateQuerySize">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE       Size
@@ -431,11 +395,11 @@ WHERE        (ID_Size = @Original_ID_Size)</CommandText>
   <xs:element name="Praktika1DataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="Praktika1DataSet" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="Praktika1DataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Color" msprop:Generator_RowClassName="ColorRow" msprop:Generator_RowEvHandlerName="ColorRowChangeEventHandler" msprop:Generator_RowDeletedName="ColorRowDeleted" msprop:Generator_RowDeletingName="ColorRowDeleting" msprop:Generator_RowEvArgName="ColorRowChangeEvent" msprop:Generator_TablePropName="Color" msprop:Generator_RowChangedName="ColorRowChanged" msprop:Generator_UserTableName="Color" msprop:Generator_RowChangingName="ColorRowChanging" msprop:Generator_TableClassName="ColorDataTable" msprop:Generator_TableVarName="tableColor">
+        <xs:element name="Color" msprop:Generator_RowEvHandlerName="ColorRowChangeEventHandler" msprop:Generator_RowDeletedName="ColorRowDeleted" msprop:Generator_RowDeletingName="ColorRowDeleting" msprop:Generator_RowEvArgName="ColorRowChangeEvent" msprop:Generator_TablePropName="Color" msprop:Generator_RowChangedName="ColorRowChanged" msprop:Generator_UserTableName="Color" msprop:Generator_RowChangingName="ColorRowChanging" msprop:Generator_RowClassName="ColorRow" msprop:Generator_TableClassName="ColorDataTable" msprop:Generator_TableVarName="tableColor">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="ID_Color" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="ID_Color" msprop:Generator_ColumnPropNameInTable="ID_ColorColumn" msprop:Generator_ColumnPropNameInRow="ID_Color" msprop:Generator_ColumnVarNameInTable="columnID_Color" type="xs:int" />
-              <xs:element name="Color" msprop:Generator_UserColumnName="Color" msprop:Generator_ColumnPropNameInTable="ColorColumn" msprop:Generator_ColumnPropNameInRow="Color" msprop:Generator_ColumnVarNameInTable="columnColor">
+              <xs:element name="ID_Color" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInTable="ID_ColorColumn" msprop:Generator_ColumnPropNameInRow="ID_Color" msprop:Generator_UserColumnName="ID_Color" msprop:Generator_ColumnVarNameInTable="columnID_Color" type="xs:int" />
+              <xs:element name="Color" msprop:Generator_ColumnPropNameInTable="ColorColumn" msprop:Generator_ColumnPropNameInRow="Color" msprop:Generator_UserColumnName="Color" msprop:Generator_ColumnVarNameInTable="columnColor">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="20" />
@@ -445,11 +409,11 @@ WHERE        (ID_Size = @Original_ID_Size)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Shoe" msprop:Generator_RowClassName="ShoeRow" msprop:Generator_RowEvHandlerName="ShoeRowChangeEventHandler" msprop:Generator_RowDeletedName="ShoeRowDeleted" msprop:Generator_RowDeletingName="ShoeRowDeleting" msprop:Generator_RowEvArgName="ShoeRowChangeEvent" msprop:Generator_TablePropName="Shoe" msprop:Generator_RowChangedName="ShoeRowChanged" msprop:Generator_UserTableName="Shoe" msprop:Generator_RowChangingName="ShoeRowChanging" msprop:Generator_TableClassName="ShoeDataTable" msprop:Generator_TableVarName="tableShoe">
+        <xs:element name="Shoe" msprop:Generator_RowEvHandlerName="ShoeRowChangeEventHandler" msprop:Generator_RowDeletedName="ShoeRowDeleted" msprop:Generator_RowDeletingName="ShoeRowDeleting" msprop:Generator_RowEvArgName="ShoeRowChangeEvent" msprop:Generator_TablePropName="Shoe" msprop:Generator_RowChangedName="ShoeRowChanged" msprop:Generator_UserTableName="Shoe" msprop:Generator_RowChangingName="ShoeRowChanging" msprop:Generator_RowClassName="ShoeRow" msprop:Generator_TableClassName="ShoeDataTable" msprop:Generator_TableVarName="tableShoe">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="ID_ShoeType" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="ID_ShoeType" msprop:Generator_ColumnPropNameInTable="ID_ShoeTypeColumn" msprop:Generator_ColumnPropNameInRow="ID_ShoeType" msprop:Generator_ColumnVarNameInTable="columnID_ShoeType" type="xs:int" />
-              <xs:element name="ShoeType" msprop:Generator_UserColumnName="ShoeType" msprop:Generator_ColumnPropNameInTable="ShoeTypeColumn" msprop:Generator_ColumnPropNameInRow="ShoeType" msprop:Generator_ColumnVarNameInTable="columnShoeType">
+              <xs:element name="ID_ShoeType" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInTable="ID_ShoeTypeColumn" msprop:Generator_ColumnPropNameInRow="ID_ShoeType" msprop:Generator_UserColumnName="ID_ShoeType" msprop:Generator_ColumnVarNameInTable="columnID_ShoeType" type="xs:int" />
+              <xs:element name="ShoeType" msprop:Generator_ColumnPropNameInTable="ShoeTypeColumn" msprop:Generator_ColumnPropNameInRow="ShoeType" msprop:Generator_UserColumnName="ShoeType" msprop:Generator_ColumnVarNameInTable="columnShoeType">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="20" />
@@ -459,30 +423,44 @@ WHERE        (ID_Size = @Original_ID_Size)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ShoeFactory" msprop:Generator_RowClassName="ShoeFactoryRow" msprop:Generator_RowEvHandlerName="ShoeFactoryRowChangeEventHandler" msprop:Generator_RowDeletedName="ShoeFactoryRowDeleted" msprop:Generator_RowDeletingName="ShoeFactoryRowDeleting" msprop:Generator_RowEvArgName="ShoeFactoryRowChangeEvent" msprop:Generator_TablePropName="ShoeFactory" msprop:Generator_RowChangedName="ShoeFactoryRowChanged" msprop:Generator_UserTableName="ShoeFactory" msprop:Generator_RowChangingName="ShoeFactoryRowChanging" msprop:Generator_TableClassName="ShoeFactoryDataTable" msprop:Generator_TableVarName="tableShoeFactory">
+        <xs:element name="ShoeFactory" msprop:Generator_RowEvHandlerName="ShoeFactoryRowChangeEventHandler" msprop:Generator_RowDeletedName="ShoeFactoryRowDeleted" msprop:Generator_RowDeletingName="ShoeFactoryRowDeleting" msprop:Generator_RowEvArgName="ShoeFactoryRowChangeEvent" msprop:Generator_TablePropName="ShoeFactory" msprop:Generator_RowChangedName="ShoeFactoryRowChanged" msprop:Generator_UserTableName="ShoeFactory" msprop:Generator_RowChangingName="ShoeFactoryRowChanging" msprop:Generator_RowClassName="ShoeFactoryRow" msprop:Generator_TableClassName="ShoeFactoryDataTable" msprop:Generator_TableVarName="tableShoeFactory">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="ID_Product" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="ID_Product" msprop:Generator_ColumnPropNameInTable="ID_ProductColumn" msprop:Generator_ColumnPropNameInRow="ID_Product" msprop:Generator_ColumnVarNameInTable="columnID_Product" type="xs:int" />
-              <xs:element name="ShoeType_ID" msprop:Generator_UserColumnName="ShoeType_ID" msprop:Generator_ColumnPropNameInTable="ShoeType_IDColumn" msprop:Generator_ColumnPropNameInRow="ShoeType_ID" msprop:Generator_ColumnVarNameInTable="columnShoeType_ID" type="xs:int" />
-              <xs:element name="Size_ID" msprop:Generator_UserColumnName="Size_ID" msprop:Generator_ColumnPropNameInTable="Size_IDColumn" msprop:Generator_ColumnPropNameInRow="Size_ID" msprop:Generator_ColumnVarNameInTable="columnSize_ID" type="xs:int" />
-              <xs:element name="Color_ID" msprop:Generator_UserColumnName="Color_ID" msprop:Generator_ColumnPropNameInTable="Color_IDColumn" msprop:Generator_ColumnPropNameInRow="Color_ID" msprop:Generator_ColumnVarNameInTable="columnColor_ID" type="xs:int" />
-              <xs:element name="Price" msprop:Generator_UserColumnName="Price" msprop:Generator_ColumnPropNameInTable="PriceColumn" msprop:Generator_ColumnPropNameInRow="Price" msprop:Generator_ColumnVarNameInTable="columnPrice" type="xs:double" />
+              <xs:element name="Номер_x0020_обуви_x003A_" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInRow="_Номер_обуви_" msprop:Generator_ColumnPropNameInTable="_Номер_обуви_Column" msprop:Generator_ColumnVarNameInTable="_columnНомер_обуви_" msprop:Generator_UserColumnName="Номер обуви:" type="xs:int" />
+              <xs:element name="Тип_x0020_обуви_x003A_" msprop:Generator_ColumnPropNameInRow="_Тип_обуви_" msprop:Generator_ColumnPropNameInTable="_Тип_обуви_Column" msprop:Generator_ColumnVarNameInTable="_columnТип_обуви_" msprop:Generator_UserColumnName="Тип обуви:">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Номер_x0020_размера_x003A_" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInRow="_Номер_размера_" msprop:Generator_ColumnPropNameInTable="_Номер_размера_Column" msprop:Generator_ColumnVarNameInTable="_columnНомер_размера_" msprop:Generator_UserColumnName="Номер размера:" type="xs:int" />
+              <xs:element name="Размер_x003A_" msprop:Generator_ColumnPropNameInRow="_Размер_" msprop:Generator_ColumnPropNameInTable="_Размер_Column" msprop:Generator_ColumnVarNameInTable="_columnРазмер_" msprop:Generator_UserColumnName="Размер:" type="xs:int" />
+              <xs:element name="Номер_x0020_цвета_x003A_" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInRow="_Номер_цвета_" msprop:Generator_ColumnPropNameInTable="_Номер_цвета_Column" msprop:Generator_ColumnVarNameInTable="_columnНомер_цвета_" msprop:Generator_UserColumnName="Номер цвета:" type="xs:int" />
+              <xs:element name="Цвет_x003A_" msprop:Generator_ColumnPropNameInRow="_Цвет_" msprop:Generator_ColumnPropNameInTable="_Цвет_Column" msprop:Generator_ColumnVarNameInTable="_columnЦвет_" msprop:Generator_UserColumnName="Цвет:">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Цена_x003A_" msprop:Generator_ColumnPropNameInRow="_Цена_" msprop:Generator_ColumnPropNameInTable="_Цена_Column" msprop:Generator_ColumnVarNameInTable="_columnЦена_" msprop:Generator_UserColumnName="Цена:" type="xs:double" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Size" msprop:Generator_RowClassName="SizeRow" msprop:Generator_RowEvHandlerName="SizeRowChangeEventHandler" msprop:Generator_RowDeletedName="SizeRowDeleted" msprop:Generator_RowDeletingName="SizeRowDeleting" msprop:Generator_RowEvArgName="SizeRowChangeEvent" msprop:Generator_TablePropName="Size" msprop:Generator_RowChangedName="SizeRowChanged" msprop:Generator_UserTableName="Size" msprop:Generator_RowChangingName="SizeRowChanging" msprop:Generator_TableClassName="SizeDataTable" msprop:Generator_TableVarName="tableSize">
+        <xs:element name="Size" msprop:Generator_RowEvHandlerName="SizeRowChangeEventHandler" msprop:Generator_RowDeletedName="SizeRowDeleted" msprop:Generator_RowDeletingName="SizeRowDeleting" msprop:Generator_RowEvArgName="SizeRowChangeEvent" msprop:Generator_TablePropName="Size" msprop:Generator_RowChangedName="SizeRowChanged" msprop:Generator_UserTableName="Size" msprop:Generator_RowChangingName="SizeRowChanging" msprop:Generator_RowClassName="SizeRow" msprop:Generator_TableClassName="SizeDataTable" msprop:Generator_TableVarName="tableSize">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="ID_Size" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="ID_Size" msprop:Generator_ColumnPropNameInTable="ID_SizeColumn" msprop:Generator_ColumnPropNameInRow="ID_Size" msprop:Generator_ColumnVarNameInTable="columnID_Size" type="xs:int" />
-              <xs:element name="Size" msprop:Generator_UserColumnName="Size" msprop:Generator_ColumnPropNameInTable="SizeColumn" msprop:Generator_ColumnPropNameInRow="Size" msprop:Generator_ColumnVarNameInTable="columnSize" type="xs:int" />
+              <xs:element name="ID_Size" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInTable="ID_SizeColumn" msprop:Generator_ColumnPropNameInRow="ID_Size" msprop:Generator_UserColumnName="ID_Size" msprop:Generator_ColumnVarNameInTable="columnID_Size" type="xs:int" />
+              <xs:element name="Size" msprop:Generator_ColumnPropNameInTable="SizeColumn" msprop:Generator_ColumnPropNameInRow="Size" msprop:Generator_UserColumnName="Size" msprop:Generator_ColumnVarNameInTable="columnSize" type="xs:int" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ColorView" msprop:Generator_RowClassName="ColorViewRow" msprop:Generator_RowEvHandlerName="ColorViewRowChangeEventHandler" msprop:Generator_RowDeletedName="ColorViewRowDeleted" msprop:Generator_RowDeletingName="ColorViewRowDeleting" msprop:Generator_RowEvArgName="ColorViewRowChangeEvent" msprop:Generator_TablePropName="ColorView" msprop:Generator_RowChangedName="ColorViewRowChanged" msprop:Generator_UserTableName="ColorView" msprop:Generator_RowChangingName="ColorViewRowChanging" msprop:Generator_TableClassName="ColorViewDataTable" msprop:Generator_TableVarName="tableColorView">
+        <xs:element name="ColorView" msprop:Generator_RowEvHandlerName="ColorViewRowChangeEventHandler" msprop:Generator_RowDeletedName="ColorViewRowDeleted" msprop:Generator_RowDeletingName="ColorViewRowDeleting" msprop:Generator_RowEvArgName="ColorViewRowChangeEvent" msprop:Generator_TablePropName="ColorView" msprop:Generator_RowChangedName="ColorViewRowChanged" msprop:Generator_UserTableName="ColorView" msprop:Generator_RowChangingName="ColorViewRowChanging" msprop:Generator_RowClassName="ColorViewRow" msprop:Generator_TableClassName="ColorViewDataTable" msprop:Generator_TableVarName="tableColorView">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Номер_x0020_цвета_x003A_" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="Номер цвета:" msprop:Generator_ColumnPropNameInTable="_Номер_цвета_Column" msprop:Generator_ColumnPropNameInRow="_Номер_цвета_" msprop:Generator_ColumnVarNameInTable="_columnНомер_цвета_" type="xs:int" />
-              <xs:element name="Цвет_x003A_" msprop:Generator_UserColumnName="Цвет:" msprop:Generator_ColumnPropNameInTable="_Цвет_Column" msprop:Generator_ColumnPropNameInRow="_Цвет_" msprop:Generator_ColumnVarNameInTable="_columnЦвет_">
+              <xs:element name="Номер_x0020_цвета_x003A_" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInTable="_Номер_цвета_Column" msprop:Generator_ColumnPropNameInRow="_Номер_цвета_" msprop:Generator_UserColumnName="Номер цвета:" msprop:Generator_ColumnVarNameInTable="_columnНомер_цвета_" type="xs:int" />
+              <xs:element name="Цвет_x003A_" msprop:Generator_ColumnPropNameInTable="_Цвет_Column" msprop:Generator_ColumnPropNameInRow="_Цвет_" msprop:Generator_UserColumnName="Цвет:" msprop:Generator_ColumnVarNameInTable="_columnЦвет_">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="20" />
@@ -492,34 +470,34 @@ WHERE        (ID_Size = @Original_ID_Size)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ShoeFactoryView" msprop:Generator_RowClassName="ShoeFactoryViewRow" msprop:Generator_RowEvHandlerName="ShoeFactoryViewRowChangeEventHandler" msprop:Generator_RowDeletedName="ShoeFactoryViewRowDeleted" msprop:Generator_RowDeletingName="ShoeFactoryViewRowDeleting" msprop:Generator_RowEvArgName="ShoeFactoryViewRowChangeEvent" msprop:Generator_TablePropName="ShoeFactoryView" msprop:Generator_RowChangedName="ShoeFactoryViewRowChanged" msprop:Generator_UserTableName="ShoeFactoryView" msprop:Generator_RowChangingName="ShoeFactoryViewRowChanging" msprop:Generator_TableClassName="ShoeFactoryViewDataTable" msprop:Generator_TableVarName="tableShoeFactoryView">
+        <xs:element name="ShoeFactoryView" msprop:Generator_RowEvHandlerName="ShoeFactoryViewRowChangeEventHandler" msprop:Generator_RowDeletedName="ShoeFactoryViewRowDeleted" msprop:Generator_RowDeletingName="ShoeFactoryViewRowDeleting" msprop:Generator_RowEvArgName="ShoeFactoryViewRowChangeEvent" msprop:Generator_TablePropName="ShoeFactoryView" msprop:Generator_RowChangedName="ShoeFactoryViewRowChanged" msprop:Generator_UserTableName="ShoeFactoryView" msprop:Generator_RowChangingName="ShoeFactoryViewRowChanging" msprop:Generator_RowClassName="ShoeFactoryViewRow" msprop:Generator_TableClassName="ShoeFactoryViewDataTable" msprop:Generator_TableVarName="tableShoeFactoryView">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Номер_x0020_продукта_x003A_" msprop:Generator_UserColumnName="Номер продукта:" msprop:Generator_ColumnPropNameInTable="_Номер_продукта_Column" msprop:Generator_ColumnPropNameInRow="_Номер_продукта_" msprop:Generator_ColumnVarNameInTable="_columnНомер_продукта_" type="xs:int" />
-              <xs:element name="Обувь_x003A_" msprop:Generator_UserColumnName="Обувь:" msprop:Generator_ColumnPropNameInTable="_Обувь_Column" msprop:Generator_ColumnPropNameInRow="_Обувь_" msprop:Generator_ColumnVarNameInTable="_columnОбувь_">
+              <xs:element name="Номер_x0020_продукта_x003A_" msprop:Generator_ColumnPropNameInTable="_Номер_продукта_Column" msprop:Generator_ColumnPropNameInRow="_Номер_продукта_" msprop:Generator_UserColumnName="Номер продукта:" msprop:Generator_ColumnVarNameInTable="_columnНомер_продукта_" type="xs:int" />
+              <xs:element name="Обувь_x003A_" msprop:Generator_ColumnPropNameInTable="_Обувь_Column" msprop:Generator_ColumnPropNameInRow="_Обувь_" msprop:Generator_UserColumnName="Обувь:" msprop:Generator_ColumnVarNameInTable="_columnОбувь_">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="20" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Размер_x003A_" msprop:Generator_UserColumnName="Размер:" msprop:Generator_ColumnPropNameInTable="_Размер_Column" msprop:Generator_ColumnPropNameInRow="_Размер_" msprop:Generator_ColumnVarNameInTable="_columnРазмер_" type="xs:int" />
-              <xs:element name="Цвет_x003A_" msprop:Generator_UserColumnName="Цвет:" msprop:Generator_ColumnPropNameInTable="_Цвет_Column" msprop:Generator_ColumnPropNameInRow="_Цвет_" msprop:Generator_ColumnVarNameInTable="_columnЦвет_">
+              <xs:element name="Размер_x003A_" msprop:Generator_ColumnPropNameInTable="_Размер_Column" msprop:Generator_ColumnPropNameInRow="_Размер_" msprop:Generator_UserColumnName="Размер:" msprop:Generator_ColumnVarNameInTable="_columnРазмер_" type="xs:int" />
+              <xs:element name="Цвет_x003A_" msprop:Generator_ColumnPropNameInTable="_Цвет_Column" msprop:Generator_ColumnPropNameInRow="_Цвет_" msprop:Generator_UserColumnName="Цвет:" msprop:Generator_ColumnVarNameInTable="_columnЦвет_">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="20" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Цена_x003A_" msprop:Generator_UserColumnName="Цена:" msprop:Generator_ColumnPropNameInTable="_Цена_Column" msprop:Generator_ColumnPropNameInRow="_Цена_" msprop:Generator_ColumnVarNameInTable="_columnЦена_" type="xs:double" />
+              <xs:element name="Цена_x003A_" msprop:Generator_ColumnPropNameInTable="_Цена_Column" msprop:Generator_ColumnPropNameInRow="_Цена_" msprop:Generator_UserColumnName="Цена:" msprop:Generator_ColumnVarNameInTable="_columnЦена_" type="xs:double" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ShoeView" msprop:Generator_RowClassName="ShoeViewRow" msprop:Generator_RowEvHandlerName="ShoeViewRowChangeEventHandler" msprop:Generator_RowDeletedName="ShoeViewRowDeleted" msprop:Generator_RowDeletingName="ShoeViewRowDeleting" msprop:Generator_RowEvArgName="ShoeViewRowChangeEvent" msprop:Generator_TablePropName="ShoeView" msprop:Generator_RowChangedName="ShoeViewRowChanged" msprop:Generator_UserTableName="ShoeView" msprop:Generator_RowChangingName="ShoeViewRowChanging" msprop:Generator_TableClassName="ShoeViewDataTable" msprop:Generator_TableVarName="tableShoeView">
+        <xs:element name="ShoeView" msprop:Generator_RowEvHandlerName="ShoeViewRowChangeEventHandler" msprop:Generator_RowDeletedName="ShoeViewRowDeleted" msprop:Generator_RowDeletingName="ShoeViewRowDeleting" msprop:Generator_RowEvArgName="ShoeViewRowChangeEvent" msprop:Generator_TablePropName="ShoeView" msprop:Generator_RowChangedName="ShoeViewRowChanged" msprop:Generator_UserTableName="ShoeView" msprop:Generator_RowChangingName="ShoeViewRowChanging" msprop:Generator_RowClassName="ShoeViewRow" msprop:Generator_TableClassName="ShoeViewDataTable" msprop:Generator_TableVarName="tableShoeView">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Номер_x0020_обуви_x003A_" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="Номер обуви:" msprop:Generator_ColumnPropNameInTable="_Номер_обуви_Column" msprop:Generator_ColumnPropNameInRow="_Номер_обуви_" msprop:Generator_ColumnVarNameInTable="_columnНомер_обуви_" type="xs:int" />
-              <xs:element name="Тип_x0020_обуви_x003A_" msprop:Generator_UserColumnName="Тип обуви:" msprop:Generator_ColumnPropNameInTable="_Тип_обуви_Column" msprop:Generator_ColumnPropNameInRow="_Тип_обуви_" msprop:Generator_ColumnVarNameInTable="_columnТип_обуви_">
+              <xs:element name="Номер_x0020_обуви_x003A_" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInTable="_Номер_обуви_Column" msprop:Generator_ColumnPropNameInRow="_Номер_обуви_" msprop:Generator_UserColumnName="Номер обуви:" msprop:Generator_ColumnVarNameInTable="_columnНомер_обуви_" type="xs:int" />
+              <xs:element name="Тип_x0020_обуви_x003A_" msprop:Generator_ColumnPropNameInTable="_Тип_обуви_Column" msprop:Generator_ColumnPropNameInRow="_Тип_обуви_" msprop:Generator_UserColumnName="Тип обуви:" msprop:Generator_ColumnVarNameInTable="_columnТип_обуви_">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="20" />
@@ -529,11 +507,11 @@ WHERE        (ID_Size = @Original_ID_Size)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="SizeView" msprop:Generator_RowClassName="SizeViewRow" msprop:Generator_RowEvHandlerName="SizeViewRowChangeEventHandler" msprop:Generator_RowDeletedName="SizeViewRowDeleted" msprop:Generator_RowDeletingName="SizeViewRowDeleting" msprop:Generator_RowEvArgName="SizeViewRowChangeEvent" msprop:Generator_TablePropName="SizeView" msprop:Generator_RowChangedName="SizeViewRowChanged" msprop:Generator_UserTableName="SizeView" msprop:Generator_RowChangingName="SizeViewRowChanging" msprop:Generator_TableClassName="SizeViewDataTable" msprop:Generator_TableVarName="tableSizeView">
+        <xs:element name="SizeView" msprop:Generator_RowEvHandlerName="SizeViewRowChangeEventHandler" msprop:Generator_RowDeletedName="SizeViewRowDeleted" msprop:Generator_RowDeletingName="SizeViewRowDeleting" msprop:Generator_RowEvArgName="SizeViewRowChangeEvent" msprop:Generator_TablePropName="SizeView" msprop:Generator_RowChangedName="SizeViewRowChanged" msprop:Generator_UserTableName="SizeView" msprop:Generator_RowChangingName="SizeViewRowChanging" msprop:Generator_RowClassName="SizeViewRow" msprop:Generator_TableClassName="SizeViewDataTable" msprop:Generator_TableVarName="tableSizeView">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Номер_x0020_размера_x003A_" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="Номер размера:" msprop:Generator_ColumnPropNameInTable="_Номер_размера_Column" msprop:Generator_ColumnPropNameInRow="_Номер_размера_" msprop:Generator_ColumnVarNameInTable="_columnНомер_размера_" type="xs:int" />
-              <xs:element name="Размер_x003A_" msprop:Generator_UserColumnName="Размер:" msprop:Generator_ColumnPropNameInTable="_Размер_Column" msprop:Generator_ColumnPropNameInRow="_Размер_" msprop:Generator_ColumnVarNameInTable="_columnРазмер_" type="xs:int" />
+              <xs:element name="Номер_x0020_размера_x003A_" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInTable="_Номер_размера_Column" msprop:Generator_ColumnPropNameInRow="_Номер_размера_" msprop:Generator_UserColumnName="Номер размера:" msprop:Generator_ColumnVarNameInTable="_columnНомер_размера_" type="xs:int" />
+              <xs:element name="Размер_x003A_" msprop:Generator_ColumnPropNameInTable="_Размер_Column" msprop:Generator_ColumnPropNameInRow="_Размер_" msprop:Generator_UserColumnName="Размер:" msprop:Generator_ColumnVarNameInTable="_columnРазмер_" type="xs:int" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -546,10 +524,6 @@ WHERE        (ID_Size = @Original_ID_Size)</CommandText>
     <xs:unique name="Shoe_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:Shoe" />
       <xs:field xpath="mstns:ID_ShoeType" />
-    </xs:unique>
-    <xs:unique name="ShoeFactory_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:ShoeFactory" />
-      <xs:field xpath="mstns:ID_Product" />
     </xs:unique>
     <xs:unique name="Size_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:Size" />
@@ -572,11 +546,4 @@ WHERE        (ID_Size = @Original_ID_Size)</CommandText>
       <xs:field xpath="mstns:Номер_x0020_размера_x003A_" />
     </xs:unique>
   </xs:element>
-  <xs:annotation>
-    <xs:appinfo>
-      <msdata:Relationship name="FK__ShoeFacto__Color__3F466844" msdata:parent="Color" msdata:child="ShoeFactory" msdata:parentkey="ID_Color" msdata:childkey="Color_ID" msprop:Generator_UserParentTable="Color" msprop:Generator_UserChildTable="ShoeFactory" msprop:Generator_RelationVarName="relationFK__ShoeFacto__Color__3F466844" msprop:Generator_ChildPropName="GetShoeFactoryRows" msprop:Generator_UserRelationName="FK__ShoeFacto__Color__3F466844" msprop:Generator_ParentPropName="ColorRow" />
-      <msdata:Relationship name="FK__ShoeFacto__ShoeT__3D5E1FD2" msdata:parent="Shoe" msdata:child="ShoeFactory" msdata:parentkey="ID_ShoeType" msdata:childkey="ShoeType_ID" msprop:Generator_UserParentTable="Shoe" msprop:Generator_UserChildTable="ShoeFactory" msprop:Generator_RelationVarName="relationFK__ShoeFacto__ShoeT__3D5E1FD2" msprop:Generator_ChildPropName="GetShoeFactoryRows" msprop:Generator_UserRelationName="FK__ShoeFacto__ShoeT__3D5E1FD2" msprop:Generator_ParentPropName="ShoeRow" />
-      <msdata:Relationship name="FK__ShoeFacto__Size___3E52440B" msdata:parent="Size" msdata:child="ShoeFactory" msdata:parentkey="ID_Size" msdata:childkey="Size_ID" msprop:Generator_UserParentTable="Size" msprop:Generator_UserChildTable="ShoeFactory" msprop:Generator_RelationVarName="relationFK__ShoeFacto__Size___3E52440B" msprop:Generator_ChildPropName="GetShoeFactoryRows" msprop:Generator_ParentPropName="SizeRow" msprop:Generator_UserRelationName="FK__ShoeFacto__Size___3E52440B" />
-    </xs:appinfo>
-  </xs:annotation>
 </xs:schema>
