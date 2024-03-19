@@ -14,7 +14,7 @@ namespace Praktika_2
     
     public partial class ShoeView
     {
-        public int Номер_обуви { get; set; }
-        public string Тип_обуви { get; set; }
+        public int Номер__обуви { get; set; }
+        public string Тип__обуви { get; set; }
     }
 }

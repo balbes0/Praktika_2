@@ -14,7 +14,7 @@ namespace Praktika_2
     
     public partial class ColorView
     {
-        public int Номер_цвета { get; set; }
+        public int Номер__цвета { get; set; }
         public string Цвет { get; set; }
     }
 }

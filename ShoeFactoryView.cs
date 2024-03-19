@@ -12,8 +12,9 @@ namespace Praktika_2
     using System;
     using System.Collections.Generic;
     
-    public partial class ShoeInventory
+    public partial class ShoeFactoryView
     {
+        public int Номер__продукта { get; set; }
         public string Обувь { get; set; }
         public int Размер { get; set; }
         public string Цвет { get; set; }

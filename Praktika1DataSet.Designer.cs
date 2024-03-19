@@ -20,9 +20,9 @@ namespace Praktika_2 {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("PraktikaodinDataSet")]
+    [global::System.Xml.Serialization.XmlRootAttribute("Praktika1DataSet")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class PraktikaodinDataSet : global::System.Data.DataSet {
+    public partial class Praktika1DataSet : global::System.Data.DataSet {
         
         private ColorDataTable tableColor;
         
@@ -34,7 +34,7 @@ namespace Praktika_2 {
         
         private ColorViewDataTable tableColorView;
         
-        private ShoeInventoryDataTable tableShoeInventory;
+        private ShoeFactoryViewDataTable tableShoeFactoryView;
         
         private ShoeViewDataTable tableShoeView;
         
@@ -50,7 +50,7 @@ namespace Praktika_2 {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public PraktikaodinDataSet() {
+        public Praktika1DataSet() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -61,7 +61,7 @@ namespace Praktika_2 {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected PraktikaodinDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected Praktika1DataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -89,8 +89,8 @@ namespace Praktika_2 {
                 if ((ds.Tables["ColorView"] != null)) {
                     base.Tables.Add(new ColorViewDataTable(ds.Tables["ColorView"]));
                 }
-                if ((ds.Tables["ShoeInventory"] != null)) {
-                    base.Tables.Add(new ShoeInventoryDataTable(ds.Tables["ShoeInventory"]));
+                if ((ds.Tables["ShoeFactoryView"] != null)) {
+                    base.Tables.Add(new ShoeFactoryViewDataTable(ds.Tables["ShoeFactoryView"]));
                 }
                 if ((ds.Tables["ShoeView"] != null)) {
                     base.Tables.Add(new ShoeViewDataTable(ds.Tables["ShoeView"]));
@@ -170,9 +170,9 @@ namespace Praktika_2 {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public ShoeInventoryDataTable ShoeInventory {
+        public ShoeFactoryViewDataTable ShoeFactoryView {
             get {
-                return this.tableShoeInventory;
+                return this.tableShoeFactoryView;
             }
         }
         
@@ -238,7 +238,7 @@ namespace Praktika_2 {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            PraktikaodinDataSet cln = ((PraktikaodinDataSet)(base.Clone()));
+            Praktika1DataSet cln = ((Praktika1DataSet)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -278,8 +278,8 @@ namespace Praktika_2 {
                 if ((ds.Tables["ColorView"] != null)) {
                     base.Tables.Add(new ColorViewDataTable(ds.Tables["ColorView"]));
                 }
-                if ((ds.Tables["ShoeInventory"] != null)) {
-                    base.Tables.Add(new ShoeInventoryDataTable(ds.Tables["ShoeInventory"]));
+                if ((ds.Tables["ShoeFactoryView"] != null)) {
+                    base.Tables.Add(new ShoeFactoryViewDataTable(ds.Tables["ShoeFactoryView"]));
                 }
                 if ((ds.Tables["ShoeView"] != null)) {
                     base.Tables.Add(new ShoeViewDataTable(ds.Tables["ShoeView"]));
@@ -350,10 +350,10 @@ namespace Praktika_2 {
                     this.tableColorView.InitVars();
                 }
             }
-            this.tableShoeInventory = ((ShoeInventoryDataTable)(base.Tables["ShoeInventory"]));
+            this.tableShoeFactoryView = ((ShoeFactoryViewDataTable)(base.Tables["ShoeFactoryView"]));
             if ((initTable == true)) {
-                if ((this.tableShoeInventory != null)) {
-                    this.tableShoeInventory.InitVars();
+                if ((this.tableShoeFactoryView != null)) {
+                    this.tableShoeFactoryView.InitVars();
                 }
             }
             this.tableShoeView = ((ShoeViewDataTable)(base.Tables["ShoeView"]));
@@ -376,9 +376,9 @@ namespace Praktika_2 {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "PraktikaodinDataSet";
+            this.DataSetName = "Praktika1DataSet";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/PraktikaodinDataSet.xsd";
+            this.Namespace = "http://tempuri.org/Praktika1DataSet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableColor = new ColorDataTable();
@@ -391,8 +391,8 @@ namespace Praktika_2 {
             base.Tables.Add(this.tableSize);
             this.tableColorView = new ColorViewDataTable();
             base.Tables.Add(this.tableColorView);
-            this.tableShoeInventory = new ShoeInventoryDataTable();
-            base.Tables.Add(this.tableShoeInventory);
+            this.tableShoeFactoryView = new ShoeFactoryViewDataTable();
+            base.Tables.Add(this.tableShoeFactoryView);
             this.tableShoeView = new ShoeViewDataTable();
             base.Tables.Add(this.tableShoeView);
             this.tableSizeView = new SizeViewDataTable();
@@ -443,7 +443,7 @@ namespace Praktika_2 {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private bool ShouldSerializeShoeInventory() {
+        private bool ShouldSerializeShoeFactoryView() {
             return false;
         }
         
@@ -470,7 +470,7 @@ namespace Praktika_2 {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            PraktikaodinDataSet ds = new PraktikaodinDataSet();
+            Praktika1DataSet ds = new Praktika1DataSet();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -530,7 +530,7 @@ namespace Praktika_2 {
         public delegate void ColorViewRowChangeEventHandler(object sender, ColorViewRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public delegate void ShoeInventoryRowChangeEventHandler(object sender, ShoeInventoryRowChangeEvent e);
+        public delegate void ShoeFactoryViewRowChangeEventHandler(object sender, ShoeFactoryViewRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void ShoeViewRowChangeEventHandler(object sender, ShoeViewRowChangeEvent e);
@@ -757,7 +757,7 @@ namespace Praktika_2 {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                PraktikaodinDataSet ds = new PraktikaodinDataSet();
+                Praktika1DataSet ds = new Praktika1DataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1035,7 +1035,7 @@ namespace Praktika_2 {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                PraktikaodinDataSet ds = new PraktikaodinDataSet();
+                Praktika1DataSet ds = new Praktika1DataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1366,7 +1366,7 @@ namespace Praktika_2 {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                PraktikaodinDataSet ds = new PraktikaodinDataSet();
+                Praktika1DataSet ds = new Praktika1DataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1643,7 +1643,7 @@ namespace Praktika_2 {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                PraktikaodinDataSet ds = new PraktikaodinDataSet();
+                Praktika1DataSet ds = new Praktika1DataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1925,7 +1925,7 @@ namespace Praktika_2 {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                PraktikaodinDataSet ds = new PraktikaodinDataSet();
+                Praktika1DataSet ds = new Praktika1DataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1989,7 +1989,9 @@ namespace Praktika_2 {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class ShoeInventoryDataTable : global::System.Data.TypedTableBase<ShoeInventoryRow> {
+        public partial class ShoeFactoryViewDataTable : global::System.Data.TypedTableBase<ShoeFactoryViewRow> {
+            
+            private global::System.Data.DataColumn _columnНомер_продукта_;
             
             private global::System.Data.DataColumn _columnОбувь_;
             
@@ -2001,8 +2003,8 @@ namespace Praktika_2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ShoeInventoryDataTable() {
-                this.TableName = "ShoeInventory";
+            public ShoeFactoryViewDataTable() {
+                this.TableName = "ShoeFactoryView";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -2010,7 +2012,7 @@ namespace Praktika_2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal ShoeInventoryDataTable(global::System.Data.DataTable table) {
+            internal ShoeFactoryViewDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -2027,9 +2029,17 @@ namespace Praktika_2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected ShoeInventoryDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected ShoeFactoryViewDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn _Номер_продукта_Column {
+                get {
+                    return this._columnНомер_продукта_;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2075,48 +2085,56 @@ namespace Praktika_2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ShoeInventoryRow this[int index] {
+            public ShoeFactoryViewRow this[int index] {
                 get {
-                    return ((ShoeInventoryRow)(this.Rows[index]));
+                    return ((ShoeFactoryViewRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event ShoeInventoryRowChangeEventHandler ShoeInventoryRowChanging;
+            public event ShoeFactoryViewRowChangeEventHandler ShoeFactoryViewRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event ShoeInventoryRowChangeEventHandler ShoeInventoryRowChanged;
+            public event ShoeFactoryViewRowChangeEventHandler ShoeFactoryViewRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event ShoeInventoryRowChangeEventHandler ShoeInventoryRowDeleting;
+            public event ShoeFactoryViewRowChangeEventHandler ShoeFactoryViewRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event ShoeInventoryRowChangeEventHandler ShoeInventoryRowDeleted;
+            public event ShoeFactoryViewRowChangeEventHandler ShoeFactoryViewRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void AddShoeInventoryRow(ShoeInventoryRow row) {
+            public void AddShoeFactoryViewRow(ShoeFactoryViewRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ShoeInventoryRow AddShoeInventoryRow(string _Обувь_, int _Размер_, string _Цвет_, double _Цена_) {
-                ShoeInventoryRow rowShoeInventoryRow = ((ShoeInventoryRow)(this.NewRow()));
+            public ShoeFactoryViewRow AddShoeFactoryViewRow(int _Номер_продукта_, string _Обувь_, int _Размер_, string _Цвет_, double _Цена_) {
+                ShoeFactoryViewRow rowShoeFactoryViewRow = ((ShoeFactoryViewRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
+                        _Номер_продукта_,
                         _Обувь_,
                         _Размер_,
                         _Цвет_,
                         _Цена_};
-                rowShoeInventoryRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowShoeInventoryRow);
-                return rowShoeInventoryRow;
+                rowShoeFactoryViewRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowShoeFactoryViewRow);
+                return rowShoeFactoryViewRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public ShoeFactoryViewRow FindBy_Номер_продукта_(int _Номер_продукта_) {
+                return ((ShoeFactoryViewRow)(this.Rows.Find(new object[] {
+                            _Номер_продукта_})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                ShoeInventoryDataTable cln = ((ShoeInventoryDataTable)(base.Clone()));
+                ShoeFactoryViewDataTable cln = ((ShoeFactoryViewDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -2124,12 +2142,13 @@ namespace Praktika_2 {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new ShoeInventoryDataTable();
+                return new ShoeFactoryViewDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
+                this._columnНомер_продукта_ = base.Columns["Номер продукта:"];
                 this._columnОбувь_ = base.Columns["Обувь:"];
                 this._columnРазмер_ = base.Columns["Размер:"];
                 this._columnЦвет_ = base.Columns["Цвет:"];
@@ -2139,6 +2158,10 @@ namespace Praktika_2 {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             private void InitClass() {
+                this._columnНомер_продукта_ = new global::System.Data.DataColumn("Номер продукта:", typeof(int), null, global::System.Data.MappingType.Element);
+                this._columnНомер_продукта_.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnНомер_продукта_");
+                this._columnНомер_продукта_.ExtendedProperties.Add("Generator_UserColumnName", "Номер продукта:");
+                base.Columns.Add(this._columnНомер_продукта_);
                 this._columnОбувь_ = new global::System.Data.DataColumn("Обувь:", typeof(string), null, global::System.Data.MappingType.Element);
                 this._columnОбувь_.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnОбувь_");
                 this._columnОбувь_.ExtendedProperties.Add("Generator_UserColumnName", "Обувь:");
@@ -2155,6 +2178,10 @@ namespace Praktika_2 {
                 this._columnЦена_.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnЦена_");
                 this._columnЦена_.ExtendedProperties.Add("Generator_UserColumnName", "Цена:");
                 base.Columns.Add(this._columnЦена_);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this._columnНомер_продукта_}, true));
+                this._columnНомер_продукта_.AllowDBNull = false;
+                this._columnНомер_продукта_.Unique = true;
                 this._columnОбувь_.AllowDBNull = false;
                 this._columnОбувь_.MaxLength = 20;
                 this._columnРазмер_.AllowDBNull = false;
@@ -2165,28 +2192,28 @@ namespace Praktika_2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ShoeInventoryRow NewShoeInventoryRow() {
-                return ((ShoeInventoryRow)(this.NewRow()));
+            public ShoeFactoryViewRow NewShoeFactoryViewRow() {
+                return ((ShoeFactoryViewRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new ShoeInventoryRow(builder);
+                return new ShoeFactoryViewRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(ShoeInventoryRow);
+                return typeof(ShoeFactoryViewRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.ShoeInventoryRowChanged != null)) {
-                    this.ShoeInventoryRowChanged(this, new ShoeInventoryRowChangeEvent(((ShoeInventoryRow)(e.Row)), e.Action));
+                if ((this.ShoeFactoryViewRowChanged != null)) {
+                    this.ShoeFactoryViewRowChanged(this, new ShoeFactoryViewRowChangeEvent(((ShoeFactoryViewRow)(e.Row)), e.Action));
                 }
             }
             
@@ -2194,8 +2221,8 @@ namespace Praktika_2 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.ShoeInventoryRowChanging != null)) {
-                    this.ShoeInventoryRowChanging(this, new ShoeInventoryRowChangeEvent(((ShoeInventoryRow)(e.Row)), e.Action));
+                if ((this.ShoeFactoryViewRowChanging != null)) {
+                    this.ShoeFactoryViewRowChanging(this, new ShoeFactoryViewRowChangeEvent(((ShoeFactoryViewRow)(e.Row)), e.Action));
                 }
             }
             
@@ -2203,8 +2230,8 @@ namespace Praktika_2 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.ShoeInventoryRowDeleted != null)) {
-                    this.ShoeInventoryRowDeleted(this, new ShoeInventoryRowChangeEvent(((ShoeInventoryRow)(e.Row)), e.Action));
+                if ((this.ShoeFactoryViewRowDeleted != null)) {
+                    this.ShoeFactoryViewRowDeleted(this, new ShoeFactoryViewRowChangeEvent(((ShoeFactoryViewRow)(e.Row)), e.Action));
                 }
             }
             
@@ -2212,14 +2239,14 @@ namespace Praktika_2 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.ShoeInventoryRowDeleting != null)) {
-                    this.ShoeInventoryRowDeleting(this, new ShoeInventoryRowChangeEvent(((ShoeInventoryRow)(e.Row)), e.Action));
+                if ((this.ShoeFactoryViewRowDeleting != null)) {
+                    this.ShoeFactoryViewRowDeleting(this, new ShoeFactoryViewRowChangeEvent(((ShoeFactoryViewRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void RemoveShoeInventoryRow(ShoeInventoryRow row) {
+            public void RemoveShoeFactoryViewRow(ShoeFactoryViewRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -2228,7 +2255,7 @@ namespace Praktika_2 {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                PraktikaodinDataSet ds = new PraktikaodinDataSet();
+                Praktika1DataSet ds = new Praktika1DataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -2246,7 +2273,7 @@ namespace Praktika_2 {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "ShoeInventoryDataTable";
+                attribute2.FixedValue = "ShoeFactoryViewDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -2510,7 +2537,7 @@ namespace Praktika_2 {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                PraktikaodinDataSet ds = new PraktikaodinDataSet();
+                Praktika1DataSet ds = new Praktika1DataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -2791,7 +2818,7 @@ namespace Praktika_2 {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                PraktikaodinDataSet ds = new PraktikaodinDataSet();
+                Praktika1DataSet ds = new Praktika1DataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -3137,25 +3164,36 @@ namespace Praktika_2 {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class ShoeInventoryRow : global::System.Data.DataRow {
+        public partial class ShoeFactoryViewRow : global::System.Data.DataRow {
             
-            private ShoeInventoryDataTable tableShoeInventory;
+            private ShoeFactoryViewDataTable tableShoeFactoryView;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal ShoeInventoryRow(global::System.Data.DataRowBuilder rb) : 
+            internal ShoeFactoryViewRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableShoeInventory = ((ShoeInventoryDataTable)(this.Table));
+                this.tableShoeFactoryView = ((ShoeFactoryViewDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int _Номер_продукта_ {
+                get {
+                    return ((int)(this[this.tableShoeFactoryView._Номер_продукта_Column]));
+                }
+                set {
+                    this[this.tableShoeFactoryView._Номер_продукта_Column] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string _Обувь_ {
                 get {
-                    return ((string)(this[this.tableShoeInventory._Обувь_Column]));
+                    return ((string)(this[this.tableShoeFactoryView._Обувь_Column]));
                 }
                 set {
-                    this[this.tableShoeInventory._Обувь_Column] = value;
+                    this[this.tableShoeFactoryView._Обувь_Column] = value;
                 }
             }
             
@@ -3163,10 +3201,10 @@ namespace Praktika_2 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int _Размер_ {
                 get {
-                    return ((int)(this[this.tableShoeInventory._Размер_Column]));
+                    return ((int)(this[this.tableShoeFactoryView._Размер_Column]));
                 }
                 set {
-                    this[this.tableShoeInventory._Размер_Column] = value;
+                    this[this.tableShoeFactoryView._Размер_Column] = value;
                 }
             }
             
@@ -3174,10 +3212,10 @@ namespace Praktika_2 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string _Цвет_ {
                 get {
-                    return ((string)(this[this.tableShoeInventory._Цвет_Column]));
+                    return ((string)(this[this.tableShoeFactoryView._Цвет_Column]));
                 }
                 set {
-                    this[this.tableShoeInventory._Цвет_Column] = value;
+                    this[this.tableShoeFactoryView._Цвет_Column] = value;
                 }
             }
             
@@ -3185,10 +3223,10 @@ namespace Praktika_2 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public double _Цена_ {
                 get {
-                    return ((double)(this[this.tableShoeInventory._Цена_Column]));
+                    return ((double)(this[this.tableShoeFactoryView._Цена_Column]));
                 }
                 set {
-                    this[this.tableShoeInventory._Цена_Column] = value;
+                    this[this.tableShoeFactoryView._Цена_Column] = value;
                 }
             }
         }
@@ -3441,22 +3479,22 @@ namespace Praktika_2 {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public class ShoeInventoryRowChangeEvent : global::System.EventArgs {
+        public class ShoeFactoryViewRowChangeEvent : global::System.EventArgs {
             
-            private ShoeInventoryRow eventRow;
+            private ShoeFactoryViewRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ShoeInventoryRowChangeEvent(ShoeInventoryRow row, global::System.Data.DataRowAction action) {
+            public ShoeFactoryViewRowChangeEvent(ShoeFactoryViewRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ShoeInventoryRow Row {
+            public ShoeFactoryViewRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -3540,7 +3578,7 @@ namespace Praktika_2 {
         }
     }
 }
-namespace Praktika_2.PraktikaodinDataSetTableAdapters {
+namespace Praktika_2.Praktika1DataSetTableAdapters {
     
     
     /// <summary>
@@ -3696,7 +3734,7 @@ namespace Praktika_2.PraktikaodinDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Praktika_2.Properties.Settings.Default.PraktikaodinConnectionString;
+            this._connection.ConnectionString = global::Praktika_2.Properties.Settings.Default.Praktika1ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3709,7 +3747,7 @@ namespace Praktika_2.PraktikaodinDataSetTableAdapters {
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "DELETE FROM Color\r\nWHERE        (ID_Color = @Original_ID_Color)";
+            this._commandCollection[1].CommandText = "DELETE FROM [dbo].[Color] WHERE ([ID_Color] = @Original_ID_Color)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_Color", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Color", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
@@ -3730,7 +3768,7 @@ namespace Praktika_2.PraktikaodinDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(PraktikaodinDataSet.ColorDataTable dataTable) {
+        public virtual int Fill(Praktika1DataSet.ColorDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -3743,9 +3781,9 @@ namespace Praktika_2.PraktikaodinDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual PraktikaodinDataSet.ColorDataTable GetData() {
+        public virtual Praktika1DataSet.ColorDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            PraktikaodinDataSet.ColorDataTable dataTable = new PraktikaodinDataSet.ColorDataTable();
+            Praktika1DataSet.ColorDataTable dataTable = new Praktika1DataSet.ColorDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -3753,14 +3791,14 @@ namespace Praktika_2.PraktikaodinDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(PraktikaodinDataSet.ColorDataTable dataTable) {
+        public virtual int Update(Praktika1DataSet.ColorDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(PraktikaodinDataSet dataSet) {
+        public virtual int Update(Praktika1DataSet dataSet) {
             return this.Adapter.Update(dataSet, "Color");
         }
         
@@ -4114,7 +4152,7 @@ namespace Praktika_2.PraktikaodinDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Praktika_2.Properties.Settings.Default.PraktikaodinConnectionString;
+            this._connection.ConnectionString = global::Praktika_2.Properties.Settings.Default.Praktika1ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4127,12 +4165,12 @@ namespace Praktika_2.PraktikaodinDataSetTableAdapters {
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "DELETE FROM Shoe\r\nWHERE        (ID_ShoeType = @Original_ID_ShoeType)";
+            this._commandCollection[1].CommandText = "DELETE FROM [dbo].[Shoe] WHERE ([ID_ShoeType] = @Original_ID_ShoeType)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_ShoeType", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID_ShoeType", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "INSERT INTO Shoe\r\n                         (ShoeType)\r\nVALUES        (@ShoeType)";
+            this._commandCollection[2].CommandText = "INSERT INTO [dbo].[Shoe] ([ShoeType]) VALUES (@ShoeType);";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ShoeType", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "ShoeType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
@@ -4148,7 +4186,7 @@ namespace Praktika_2.PraktikaodinDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(PraktikaodinDataSet.ShoeDataTable dataTable) {
+        public virtual int Fill(Praktika1DataSet.ShoeDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -4161,9 +4199,9 @@ namespace Praktika_2.PraktikaodinDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual PraktikaodinDataSet.ShoeDataTable GetData() {
+        public virtual Praktika1DataSet.ShoeDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            PraktikaodinDataSet.ShoeDataTable dataTable = new PraktikaodinDataSet.ShoeDataTable();
+            Praktika1DataSet.ShoeDataTable dataTable = new Praktika1DataSet.ShoeDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -4171,14 +4209,14 @@ namespace Praktika_2.PraktikaodinDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(PraktikaodinDataSet.ShoeDataTable dataTable) {
+        public virtual int Update(Praktika1DataSet.ShoeDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(PraktikaodinDataSet dataSet) {
+        public virtual int Update(Praktika1DataSet dataSet) {
             return this.Adapter.Update(dataSet, "Shoe");
         }
         
@@ -4549,7 +4587,7 @@ SELECT ID_Product, ShoeType_ID, Size_ID, Color_ID, Price FROM ShoeFactory WHERE 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Praktika_2.Properties.Settings.Default.PraktikaodinConnectionString;
+            this._connection.ConnectionString = global::Praktika_2.Properties.Settings.Default.Praktika1ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4567,8 +4605,8 @@ SELECT ID_Product, ShoeType_ID, Size_ID, Color_ID, Price FROM ShoeFactory WHERE 
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_Product", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Product", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "INSERT INTO ShoeFactory\r\n                         (ShoeType_ID, Size_ID, Color_ID" +
-                ", Price)\r\nVALUES        (@ShoeType_ID,@Size_ID,@Color_ID,@Price)";
+            this._commandCollection[2].CommandText = "INSERT INTO [dbo].[ShoeFactory] ([ShoeType_ID], [Size_ID], [Color_ID], [Price]) V" +
+                "ALUES (@ShoeType_ID, @Size_ID, @Color_ID, @Price);";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ShoeType_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ShoeType_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Size_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Size_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -4591,7 +4629,7 @@ SELECT ID_Product, ShoeType_ID, Size_ID, Color_ID, Price FROM ShoeFactory WHERE 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(PraktikaodinDataSet.ShoeFactoryDataTable dataTable) {
+        public virtual int Fill(Praktika1DataSet.ShoeFactoryDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -4604,9 +4642,9 @@ SELECT ID_Product, ShoeType_ID, Size_ID, Color_ID, Price FROM ShoeFactory WHERE 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual PraktikaodinDataSet.ShoeFactoryDataTable GetData() {
+        public virtual Praktika1DataSet.ShoeFactoryDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            PraktikaodinDataSet.ShoeFactoryDataTable dataTable = new PraktikaodinDataSet.ShoeFactoryDataTable();
+            Praktika1DataSet.ShoeFactoryDataTable dataTable = new Praktika1DataSet.ShoeFactoryDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -4614,14 +4652,14 @@ SELECT ID_Product, ShoeType_ID, Size_ID, Color_ID, Price FROM ShoeFactory WHERE 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(PraktikaodinDataSet.ShoeFactoryDataTable dataTable) {
+        public virtual int Update(Praktika1DataSet.ShoeFactoryDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(PraktikaodinDataSet dataSet) {
+        public virtual int Update(Praktika1DataSet dataSet) {
             return this.Adapter.Update(dataSet, "ShoeFactory");
         }
         
@@ -4963,7 +5001,7 @@ SELECT ID_Product, ShoeType_ID, Size_ID, Color_ID, Price FROM ShoeFactory WHERE 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Praktika_2.Properties.Settings.Default.PraktikaodinConnectionString;
+            this._connection.ConnectionString = global::Praktika_2.Properties.Settings.Default.Praktika1ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4976,7 +5014,7 @@ SELECT ID_Product, ShoeType_ID, Size_ID, Color_ID, Price FROM ShoeFactory WHERE 
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "DELETE FROM Size\r\nWHERE        (ID_Size = @Original_ID_Size)";
+            this._commandCollection[1].CommandText = "DELETE FROM [dbo].[Size] WHERE ([ID_Size] = @Original_ID_Size)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_Size", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Size", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
@@ -4997,7 +5035,7 @@ SELECT ID_Product, ShoeType_ID, Size_ID, Color_ID, Price FROM ShoeFactory WHERE 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(PraktikaodinDataSet.SizeDataTable dataTable) {
+        public virtual int Fill(Praktika1DataSet.SizeDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -5010,9 +5048,9 @@ SELECT ID_Product, ShoeType_ID, Size_ID, Color_ID, Price FROM ShoeFactory WHERE 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual PraktikaodinDataSet.SizeDataTable GetData() {
+        public virtual Praktika1DataSet.SizeDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            PraktikaodinDataSet.SizeDataTable dataTable = new PraktikaodinDataSet.SizeDataTable();
+            Praktika1DataSet.SizeDataTable dataTable = new Praktika1DataSet.SizeDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -5020,14 +5058,14 @@ SELECT ID_Product, ShoeType_ID, Size_ID, Color_ID, Price FROM ShoeFactory WHERE 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(PraktikaodinDataSet.SizeDataTable dataTable) {
+        public virtual int Update(Praktika1DataSet.SizeDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(PraktikaodinDataSet dataSet) {
+        public virtual int Update(Praktika1DataSet dataSet) {
             return this.Adapter.Update(dataSet, "Size");
         }
         
@@ -5328,7 +5366,7 @@ SELECT ID_Product, ShoeType_ID, Size_ID, Color_ID, Price FROM ShoeFactory WHERE 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Praktika_2.Properties.Settings.Default.PraktikaodinConnectionString;
+            this._connection.ConnectionString = global::Praktika_2.Properties.Settings.Default.Praktika1ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5345,7 +5383,7 @@ SELECT ID_Product, ShoeType_ID, Size_ID, Color_ID, Price FROM ShoeFactory WHERE 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(PraktikaodinDataSet.ColorViewDataTable dataTable) {
+        public virtual int Fill(Praktika1DataSet.ColorViewDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -5358,9 +5396,9 @@ SELECT ID_Product, ShoeType_ID, Size_ID, Color_ID, Price FROM ShoeFactory WHERE 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual PraktikaodinDataSet.ColorViewDataTable GetData() {
+        public virtual Praktika1DataSet.ColorViewDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            PraktikaodinDataSet.ColorViewDataTable dataTable = new PraktikaodinDataSet.ColorViewDataTable();
+            Praktika1DataSet.ColorViewDataTable dataTable = new Praktika1DataSet.ColorViewDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -5375,7 +5413,7 @@ SELECT ID_Product, ShoeType_ID, Size_ID, Color_ID, Price FROM ShoeFactory WHERE 
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class ShoeInventoryTableAdapter : global::System.ComponentModel.Component {
+    public partial class ShoeFactoryViewTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -5389,7 +5427,7 @@ SELECT ID_Product, ShoeType_ID, Size_ID, Color_ID, Price FROM ShoeFactory WHERE 
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public ShoeInventoryTableAdapter() {
+        public ShoeFactoryViewTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -5486,7 +5524,8 @@ SELECT ID_Product, ShoeType_ID, Size_ID, Color_ID, Price FROM ShoeFactory WHERE 
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "ShoeInventory";
+            tableMapping.DataSetTable = "ShoeFactoryView";
+            tableMapping.ColumnMappings.Add("Номер продукта:", "Номер продукта:");
             tableMapping.ColumnMappings.Add("Обувь:", "Обувь:");
             tableMapping.ColumnMappings.Add("Размер:", "Размер:");
             tableMapping.ColumnMappings.Add("Цвет:", "Цвет:");
@@ -5498,7 +5537,7 @@ SELECT ID_Product, ShoeType_ID, Size_ID, Color_ID, Price FROM ShoeFactory WHERE 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Praktika_2.Properties.Settings.Default.PraktikaodinConnectionString;
+            this._connection.ConnectionString = global::Praktika_2.Properties.Settings.Default.Praktika1ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5507,7 +5546,8 @@ SELECT ID_Product, ShoeType_ID, Size_ID, Color_ID, Price FROM ShoeFactory WHERE 
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT [Обувь:], [Размер:], [Цвет:], [Цена:] FROM dbo.ShoeInventory";
+            this._commandCollection[0].CommandText = "SELECT [Номер продукта:], [Обувь:], [Размер:], [Цвет:], [Цена:] FROM dbo.ShoeFact" +
+                "oryView";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -5515,7 +5555,7 @@ SELECT ID_Product, ShoeType_ID, Size_ID, Color_ID, Price FROM ShoeFactory WHERE 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(PraktikaodinDataSet.ShoeInventoryDataTable dataTable) {
+        public virtual int Fill(Praktika1DataSet.ShoeFactoryViewDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -5528,9 +5568,9 @@ SELECT ID_Product, ShoeType_ID, Size_ID, Color_ID, Price FROM ShoeFactory WHERE 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual PraktikaodinDataSet.ShoeInventoryDataTable GetData() {
+        public virtual Praktika1DataSet.ShoeFactoryViewDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            PraktikaodinDataSet.ShoeInventoryDataTable dataTable = new PraktikaodinDataSet.ShoeInventoryDataTable();
+            Praktika1DataSet.ShoeFactoryViewDataTable dataTable = new Praktika1DataSet.ShoeFactoryViewDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -5666,7 +5706,7 @@ SELECT ID_Product, ShoeType_ID, Size_ID, Color_ID, Price FROM ShoeFactory WHERE 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Praktika_2.Properties.Settings.Default.PraktikaodinConnectionString;
+            this._connection.ConnectionString = global::Praktika_2.Properties.Settings.Default.Praktika1ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5683,7 +5723,7 @@ SELECT ID_Product, ShoeType_ID, Size_ID, Color_ID, Price FROM ShoeFactory WHERE 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(PraktikaodinDataSet.ShoeViewDataTable dataTable) {
+        public virtual int Fill(Praktika1DataSet.ShoeViewDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -5696,9 +5736,9 @@ SELECT ID_Product, ShoeType_ID, Size_ID, Color_ID, Price FROM ShoeFactory WHERE 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual PraktikaodinDataSet.ShoeViewDataTable GetData() {
+        public virtual Praktika1DataSet.ShoeViewDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            PraktikaodinDataSet.ShoeViewDataTable dataTable = new PraktikaodinDataSet.ShoeViewDataTable();
+            Praktika1DataSet.ShoeViewDataTable dataTable = new Praktika1DataSet.ShoeViewDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -5834,7 +5874,7 @@ SELECT ID_Product, ShoeType_ID, Size_ID, Color_ID, Price FROM ShoeFactory WHERE 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Praktika_2.Properties.Settings.Default.PraktikaodinConnectionString;
+            this._connection.ConnectionString = global::Praktika_2.Properties.Settings.Default.Praktika1ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5851,7 +5891,7 @@ SELECT ID_Product, ShoeType_ID, Size_ID, Color_ID, Price FROM ShoeFactory WHERE 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(PraktikaodinDataSet.SizeViewDataTable dataTable) {
+        public virtual int Fill(Praktika1DataSet.SizeViewDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -5864,9 +5904,9 @@ SELECT ID_Product, ShoeType_ID, Size_ID, Color_ID, Price FROM ShoeFactory WHERE 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual PraktikaodinDataSet.SizeViewDataTable GetData() {
+        public virtual Praktika1DataSet.SizeViewDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            PraktikaodinDataSet.SizeViewDataTable dataTable = new PraktikaodinDataSet.SizeViewDataTable();
+            Praktika1DataSet.SizeViewDataTable dataTable = new Praktika1DataSet.SizeViewDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -6032,7 +6072,7 @@ SELECT ID_Product, ShoeType_ID, Size_ID, Color_ID, Price FROM ShoeFactory WHERE 
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateUpdatedRows(PraktikaodinDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(Praktika1DataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._colorTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Color.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
@@ -6078,7 +6118,7 @@ SELECT ID_Product, ShoeType_ID, Size_ID, Color_ID, Price FROM ShoeFactory WHERE 
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateInsertedRows(PraktikaodinDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(Praktika1DataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._colorTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Color.Select(null, null, global::System.Data.DataViewRowState.Added);
@@ -6120,7 +6160,7 @@ SELECT ID_Product, ShoeType_ID, Size_ID, Color_ID, Price FROM ShoeFactory WHERE 
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateDeletedRows(PraktikaodinDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(Praktika1DataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             if ((this._shoeFactoryTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.ShoeFactory.Select(null, null, global::System.Data.DataViewRowState.Deleted);
@@ -6186,7 +6226,7 @@ SELECT ID_Product, ShoeType_ID, Size_ID, Color_ID, Price FROM ShoeFactory WHERE 
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public virtual int UpdateAll(PraktikaodinDataSet dataSet) {
+        public virtual int UpdateAll(Praktika1DataSet dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

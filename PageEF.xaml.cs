@@ -1,5 +1,4 @@
-﻿using Praktika_2.PraktikaodinDataSetTableAdapters;
-using System.Data;
+﻿using System.Data;
 using System;
 using System.Linq;
 using System.Windows;
@@ -12,7 +11,10 @@ namespace Praktika_2
 {
     public partial class PageEF : Page
     {
-        private PraktikaodinEntities praktikaodinEntity = new PraktikaodinEntities();
+        private Praktika1Entities praktika1Entity = new Praktika1Entities();
+        int idShoeType;
+        int idSize;
+        int idColor;
         string nametable = "";
         public PageEF(string selectedTable)
         {
@@ -25,43 +27,27 @@ namespace Praktika_2
                 nametable = selectedTable;
                 if (selectedTable == "Color")
                 {
-                    DataGridEF.ItemsSource = praktikaodinEntity.Color.ToList();
+                    DataGridEF.ItemsSource = praktika1Entity.ColorView.ToList();
                 }
                 else if (selectedTable == "Shoe")
                 {
-                    DataGridEF.ItemsSource = praktikaodinEntity.Shoe.ToList();
+                    DataGridEF.ItemsSource = praktika1Entity.ShoeView.ToList();
                 }
                 else if (selectedTable == "ShoeFactory")
                 {
-                    DataGridEF.ItemsSource = praktikaodinEntity.ShoeFactory.ToList();
-                    SizeIDCMBX.ItemsSource = praktikaodinEntity.Size.ToList();
-                    SizeIDCMBX.DisplayMemberPath = "ID_Size";
-                    ColorIDCMBX.ItemsSource = praktikaodinEntity.Color.ToList();
-                    ColorIDCMBX.DisplayMemberPath = "ID_Color";
-                    ShoeTypeIDCMBX.ItemsSource = praktikaodinEntity.Shoe.ToList();
-                    ShoeTypeIDCMBX.DisplayMemberPath = "ID_ShoeType";
+                    DataGridEF.ItemsSource = praktika1Entity.ShoeFactoryView.ToList();
+                    SizeIDCMBX.ItemsSource = praktika1Entity.Size.ToList();
+                    SizeIDCMBX.DisplayMemberPath = "Size1";
+                    ColorIDCMBX.ItemsSource = praktika1Entity.Color.ToList();
+                    ColorIDCMBX.DisplayMemberPath = "Color1";
+                    ShoeTypeIDCMBX.ItemsSource = praktika1Entity.Shoe.ToList();
+                    ShoeTypeIDCMBX.DisplayMemberPath = "ShoeType";
                     GridTextBoxEF.Visibility = Visibility.Hidden;
                     GridComboBoxesEF.Visibility = Visibility.Visible;
                 }
                 else if (selectedTable == "Size")
                 {
-                    DataGridEF.ItemsSource = praktikaodinEntity.Size.ToList();
-                }
-                else if (selectedTable == "ShoeInventory")
-                {
-                    DataGridEF.ItemsSource = praktikaodinEntity.ShoeInventory.ToList();
-                }
-                else if (selectedTable == "ColorView")
-                {
-                    DataGridEF.ItemsSource = praktikaodinEntity.ColorView.ToList();
-                }
-                else if (selectedTable == "SizeView")
-                {
-                    DataGridEF.ItemsSource = praktikaodinEntity.SizeView.ToList();
-                }
-                else if (selectedTable == "ShoeView")
-                {
-                    DataGridEF.ItemsSource = praktikaodinEntity.ShoeView.ToList();
+                    DataGridEF.ItemsSource = praktika1Entity.SizeView.ToList();
                 }
             }
         }
@@ -71,40 +57,36 @@ namespace Praktika_2
             {
                 Color color = new Color();
                 color.Color1 = TextBoxEF.Text;
-                praktikaodinEntity.Color.Add(color);
-                praktikaodinEntity.SaveChanges();
-                DataGridEF.ItemsSource = praktikaodinEntity.Color.ToList();
+                praktika1Entity.Color.Add(color);
+                praktika1Entity.SaveChanges();
+                DataGridEF.ItemsSource = praktika1Entity.ColorView.ToList();
             }
             else if (nametable == "Shoe")
             {
                 Shoe shoe = new Shoe();
                 shoe.ShoeType = TextBoxEF.Text;
-                praktikaodinEntity.Shoe.Add(shoe);
-                praktikaodinEntity.SaveChanges();
-                DataGridEF.ItemsSource = praktikaodinEntity.Shoe.ToList();
+                praktika1Entity.Shoe.Add(shoe);
+                praktika1Entity.SaveChanges();
+                DataGridEF.ItemsSource = praktika1Entity.ShoeView.ToList();
             }
             else if (nametable == "Size")
             {
                 Size size = new Size();
                 size.Size1 = Convert.ToInt32(TextBoxEF.Text);
-                praktikaodinEntity.Size.Add(size);
-                praktikaodinEntity.SaveChanges();
-                DataGridEF.ItemsSource = praktikaodinEntity.Size.ToList();
+                praktika1Entity.Size.Add(size);
+                praktika1Entity.SaveChanges();
+                DataGridEF.ItemsSource = praktika1Entity.SizeView.ToList();
             }
             else if (nametable == "ShoeFactory")
             {
                 ShoeFactory shoeFactory = new ShoeFactory();
-                shoeFactory.ShoeType_ID = (Convert.ToInt32(ShoeTypeIDCMBX.Text));
-                shoeFactory.Size_ID = (Convert.ToInt32(SizeIDCMBX.Text));
-                shoeFactory.Color_ID = (Convert.ToInt32(ColorIDCMBX.Text));
+                shoeFactory.ShoeType_ID = (idShoeType);
+                shoeFactory.Size_ID = (idSize);
+                shoeFactory.Color_ID = (idColor);
                 shoeFactory.Price = (Convert.ToInt32(PriceTBX.Text));
-                praktikaodinEntity.ShoeFactory.Add(shoeFactory);
-                praktikaodinEntity.SaveChanges();
-                DataGridEF.ItemsSource = praktikaodinEntity.ShoeFactory.ToList();
-            }
-            else if (nametable == "ShoeInventory" || nametable == "ShoeView" || nametable == "SizeView" || nametable == "ColorView")
-            {
-                MessageBox.Show("Эту таблицу менять нельзя!");
+                praktika1Entity.ShoeFactory.Add(shoeFactory);
+                praktika1Entity.SaveChanges();
+                DataGridEF.ItemsSource = praktika1Entity.ShoeFactoryView.ToList();
             }
         }
         public void SaveChangesWithButton()
@@ -113,78 +95,94 @@ namespace Praktika_2
             {
                 if (nametable == "Color")
                 {
-                    var selected = DataGridEF.SelectedItem as Color;
-                    TextBoxEF.Text = selected.Color1;
-                    selected.Color1 = TextBoxEF.Text;
-                    praktikaodinEntity.SaveChanges();
-                    DataGridEF.ItemsSource = praktikaodinEntity.Color.ToList();
+                    var selected = DataGridEF.SelectedItem as ColorView;
+                    Color colorToSave = praktika1Entity.Color.FirstOrDefault(size => size.ID_Color == selected.Номер__цвета);
+                    colorToSave.Color1 = TextBoxEF.Text;
+                    praktika1Entity.SaveChanges();
+                    DataGridEF.ItemsSource = praktika1Entity.ColorView.ToList();
                 }
                 else if (nametable == "Shoe")
                 {
-                    var selected = DataGridEF.SelectedItem as Shoe;
-                    TextBoxEF.Text = selected.ShoeType;
-                    selected.ShoeType = TextBoxEF.Text;
-                    praktikaodinEntity.SaveChanges();
-                    DataGridEF.ItemsSource = praktikaodinEntity.Shoe.ToList();
+                    var selected = DataGridEF.SelectedItem as ShoeView;
+                    Shoe shoeToSave = praktika1Entity.Shoe.FirstOrDefault(s => s.ID_ShoeType == selected.Номер__обуви);
+                    shoeToSave.ShoeType = TextBoxEF.Text;
+                    praktika1Entity.SaveChanges();
+                    DataGridEF.ItemsSource = praktika1Entity.ShoeView.ToList();
                 }
                 else if (nametable == "Size")
                 {
-                    var selected = DataGridEF.SelectedItem as Size;
-                    TextBoxEF.Text = selected.Size1.ToString();
-                    selected.Size1 = Convert.ToInt32(TextBoxEF.Text);
-                    praktikaodinEntity.SaveChanges();
-                    DataGridEF.ItemsSource = praktikaodinEntity.Color.ToList();
+                    var selected = DataGridEF.SelectedItem as SizeView;
+                    Size sizeToSave = praktika1Entity.Size.FirstOrDefault(size => size.ID_Size == selected.Номер__размера);
+                    sizeToSave.Size1 = Convert.ToInt32(TextBoxEF.Text);
+                    praktika1Entity.SaveChanges();
+                    DataGridEF.ItemsSource = praktika1Entity.ColorView.ToList();
                 }
                 else if (nametable == "ShoeFactory")
                 {
-                    var selected = DataGridEF.SelectedItem as ShoeFactory;
-                    selected.ShoeType_ID = Convert.ToInt32(ShoeTypeIDCMBX.Text);
-                    selected.Color_ID = Convert.ToInt32(ColorIDCMBX.Text);
-                    selected.Size_ID = Convert.ToInt32(SizeIDCMBX.Text);
-                    selected.Price = Convert.ToInt32(PriceTBX.Text);
-                    praktikaodinEntity.SaveChanges();
-                    DataGridEF.ItemsSource = praktikaodinEntity.ShoeFactory.ToList();
-                }
-                else if (nametable == "ShoeInventory" || nametable == "ShoeView" || nametable == "SizeView" || nametable == "ColorView")
-                {
-                    MessageBox.Show("Эту таблицу менять нельзя!");
+                    var selected = DataGridEF.SelectedItem as ShoeFactoryView;
+                    ShoeFactory shoeFactoryToSave = praktika1Entity.ShoeFactory.FirstOrDefault(sf => sf.ID_Product == selected.Номер__продукта);
+                    shoeFactoryToSave.ShoeType_ID = (idShoeType);
+                    shoeFactoryToSave.Size_ID = (idSize);
+                    shoeFactoryToSave.Color_ID = (idColor);
+                    shoeFactoryToSave.Price = Convert.ToInt32(PriceTBX.Text);
+                    praktika1Entity.SaveChanges();
+                    DataGridEF.ItemsSource = praktika1Entity.ShoeFactoryView.ToList();
                 }
             }
-            praktikaodinEntity.SaveChanges();
+            praktika1Entity.SaveChanges();
         }
         public void DeleteWithButton()
         {
-            if (DataGridEF.SelectedItem != null)
+            if (nametable == "Color")
             {
-                if (nametable == "Color")
-                {
-                    praktikaodinEntity.Color.Remove(DataGridEF.SelectedItem as Color);
-                    praktikaodinEntity.SaveChanges();
-                    DataGridEF.ItemsSource = praktikaodinEntity.Color.ToList();
-                }
-                else if (nametable == "Shoe")
-                {
-                    praktikaodinEntity.Shoe.Remove(DataGridEF.SelectedItem as Shoe);
-                    praktikaodinEntity.SaveChanges();
-                    DataGridEF.ItemsSource = praktikaodinEntity.Shoe.ToList();
-                }
-                else if (nametable == "Size")
-                {
-                    praktikaodinEntity.Size.Remove(DataGridEF.SelectedItem as Size);
-                    praktikaodinEntity.SaveChanges();
-                    DataGridEF.ItemsSource = praktikaodinEntity.Size.ToList();
-                }
-                else if (nametable == "ShoeFactory")
-                {
-                    praktikaodinEntity.ShoeFactory.Remove(DataGridEF.SelectedItem as ShoeFactory);
-                    praktikaodinEntity.SaveChanges();
-                    DataGridEF.ItemsSource = praktikaodinEntity.ShoeFactory.ToList();
-                }
-                else if (nametable == "ShoeInventory" || nametable == "ShoeView" || nametable == "SizeView" || nametable == "ColorView")
-                {
-                    MessageBox.Show("Эту таблицу менять нельзя!");
-                }
+                ColorView selectedItem = DataGridEF.SelectedItem as ColorView;
+                Color colorToDelete = praktika1Entity.Color.FirstOrDefault(color => color.ID_Color == selectedItem.Номер__цвета);
+                praktika1Entity.Color.Remove(colorToDelete);
+                praktika1Entity.SaveChanges();
+                DataGridEF.ItemsSource = praktika1Entity.ColorView.ToList();
             }
+            else if (nametable == "Shoe")
+            {
+                ShoeView selectedItem = DataGridEF.SelectedItem as ShoeView;
+                Shoe shoeToDelete = praktika1Entity.Shoe.FirstOrDefault(shoe => shoe.ID_ShoeType == selectedItem.Номер__обуви);
+                praktika1Entity.Shoe.Remove(shoeToDelete);
+                praktika1Entity.SaveChanges();
+                DataGridEF.ItemsSource = praktika1Entity.ShoeView.ToList();
+            }
+            else if (nametable == "Size")
+            {
+                SizeView selectedItem = DataGridEF.SelectedItem as SizeView;
+                Size sizeToDelete = praktika1Entity.Size.FirstOrDefault(size => size.ID_Size == selectedItem.Номер__размера);
+                praktika1Entity.Size.Remove(sizeToDelete);
+                praktika1Entity.SaveChanges();
+                DataGridEF.ItemsSource = praktika1Entity.SizeView.ToList();
+            }
+            else if (nametable == "ShoeFactory")
+            {
+                ShoeFactoryView selectedItem = DataGridEF.SelectedItem as ShoeFactoryView;
+                ShoeFactory shoeFactoryToDelete = praktika1Entity.ShoeFactory.FirstOrDefault(sf => sf.ID_Product == selectedItem.Номер__продукта);
+                praktika1Entity.ShoeFactory.Remove(shoeFactoryToDelete);
+                praktika1Entity.SaveChanges();
+                DataGridEF.ItemsSource = praktika1Entity.ShoeFactoryView.ToList();
+            }
+        }
+
+        private void ShoeTypeIDCMBX_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var selectedItem = ShoeTypeIDCMBX.SelectedItem as Shoe;
+            idShoeType = praktika1Entity.Shoe.Where(s => s.ShoeType == selectedItem.ShoeType).Select(s => s.ID_ShoeType).FirstOrDefault();
+        }
+
+        private void SizeIDCMBX_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var selectedItem = SizeIDCMBX.SelectedItem as Size;
+            idSize = praktika1Entity.Size.Where(size => size.Size1 == selectedItem.Size1).Select(size => size.ID_Size).FirstOrDefault();
+        }
+
+        private void ColorIDCMBX_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var selectedItem = ColorIDCMBX.SelectedItem as Color;
+            idColor = praktika1Entity.Color.Where(color => color.Color1 == selectedItem.Color1).Select(color => color.ID_Color).FirstOrDefault();
         }
     }
 }

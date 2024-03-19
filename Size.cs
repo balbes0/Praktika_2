@@ -24,6 +24,6 @@ namespace Praktika_2
         public int Size1 { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ShoeFactory> ShoeFactory { private get; set; }
+        public virtual ICollection<ShoeFactory> ShoeFactory { get; set; }
     }
 }

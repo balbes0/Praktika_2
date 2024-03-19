@@ -13,10 +13,10 @@ namespace Praktika_2
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class PraktikaodinEntities : DbContext
+    public partial class Praktika1Entities : DbContext
     {
-        public PraktikaodinEntities()
-            : base("name=PraktikaodinEntities")
+        public Praktika1Entities()
+            : base("name=Praktika1Entities")
         {
         }
     
@@ -30,8 +30,8 @@ namespace Praktika_2
         public virtual DbSet<ShoeFactory> ShoeFactory { get; set; }
         public virtual DbSet<Size> Size { get; set; }
         public virtual DbSet<ColorView> ColorView { get; set; }
+        public virtual DbSet<ShoeFactoryView> ShoeFactoryView { get; set; }
         public virtual DbSet<ShoeView> ShoeView { get; set; }
         public virtual DbSet<SizeView> SizeView { get; set; }
-        public virtual DbSet<ShoeFactoryView> ShoeFactoryView { get; set; }
     }
 }

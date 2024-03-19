@@ -20,8 +20,8 @@ namespace Praktika_2
         public int Color_ID { get; set; }
         public double Price { get; set; }
     
-        public virtual Color Color { private get; set; }
-        public virtual Shoe Shoe { private get; set; }
-        public virtual Size Size { private get; set; }
+        public virtual Color Color { get; set; }
+        public virtual Shoe Shoe { get; set; }
+        public virtual Size Size { get; set; }
     }
 }

@@ -11,17 +11,10 @@ namespace Praktika_2
         private PageEF currentPageEF;
         string selectedPage;
         string selectedTable = "";
-        PraktikaodinDataSet dataSet;
-        List<string> tableNames = new List<string>();
+        List<string> tableNames = new List<string>() { "Color", "Shoe", "ShoeFactory", "Size"};
         public MainWindow()
         {
             InitializeComponent();
-            dataSet = new PraktikaodinDataSet();
-            DataTableCollection tables = dataSet.Tables;
-            foreach (DataTable table in tables)
-            {
-                tableNames.Add(table.TableName);
-            }
             ComboBoxChangeTable.ItemsSource = tableNames;
         }
         private void NextPage_Click(object sender, RoutedEventArgs e)

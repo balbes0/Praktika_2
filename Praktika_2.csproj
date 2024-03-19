@@ -76,16 +76,36 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Color.cs">
-      <DependentUpon>Praktikaodin.tt</DependentUpon>
+      <DependentUpon>Praktika1.tt</DependentUpon>
     </Compile>
     <Compile Include="ColorView.cs">
-      <DependentUpon>Praktikaodin.tt</DependentUpon>
+      <DependentUpon>Praktika1.tt</DependentUpon>
     </Compile>
     <Compile Include="PageDS.xaml.cs">
       <DependentUpon>PageDS.xaml</DependentUpon>
     </Compile>
     <Compile Include="PageEF.xaml.cs">
       <DependentUpon>PageEF.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Praktika1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Praktika1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Praktika1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Praktika1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Praktika1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Praktika1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Praktika1DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Praktika1DataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Praktikaodin.Context.cs">
       <AutoGen>True</AutoGen>
@@ -102,31 +122,23 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Praktikaodin.edmx</DependentUpon>
     </Compile>
-    <Compile Include="PraktikaodinDataSet.cs">
-      <DependentUpon>PraktikaodinDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="PraktikaodinDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PraktikaodinDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Shoe.cs">
-      <DependentUpon>Praktikaodin.tt</DependentUpon>
+      <DependentUpon>Praktika1.tt</DependentUpon>
     </Compile>
     <Compile Include="ShoeFactory.cs">
-      <DependentUpon>Praktikaodin.tt</DependentUpon>
+      <DependentUpon>Praktika1.tt</DependentUpon>
     </Compile>
-    <Compile Include="ShoeInventory.cs">
-      <DependentUpon>Praktikaodin.tt</DependentUpon>
+    <Compile Include="ShoeFactoryView.cs">
+      <DependentUpon>Praktika1.tt</DependentUpon>
     </Compile>
     <Compile Include="ShoeView.cs">
-      <DependentUpon>Praktikaodin.tt</DependentUpon>
+      <DependentUpon>Praktika1.tt</DependentUpon>
     </Compile>
     <Compile Include="Size.cs">
-      <DependentUpon>Praktikaodin.tt</DependentUpon>
+      <DependentUpon>Praktika1.tt</DependentUpon>
     </Compile>
     <Compile Include="SizeView.cs">
-      <DependentUpon>Praktikaodin.tt</DependentUpon>
+      <DependentUpon>Praktika1.tt</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -172,19 +184,26 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Praktikaodin.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Praktikaodin.edmx.diagram">
-      <DependentUpon>Praktikaodin.edmx</DependentUpon>
+    <EntityDeploy Include="Praktika1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Praktika1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Praktika1.edmx.diagram">
+      <DependentUpon>Praktika1.edmx</DependentUpon>
     </None>
-    <None Include="PraktikaodinDataSet.xsc">
-      <DependentUpon>PraktikaodinDataSet.xsd</DependentUpon>
+    <None Include="Praktika1DataSet.xsc">
+      <DependentUpon>Praktika1DataSet.xsd</DependentUpon>
     </None>
-    <None Include="PraktikaodinDataSet.xsd">
+    <None Include="Praktika1DataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>PraktikaodinDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>Praktika1DataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="PraktikaodinDataSet.xss">
-      <DependentUpon>PraktikaodinDataSet.xsd</DependentUpon>
+    <None Include="Praktika1DataSet.xss">
+      <DependentUpon>Praktika1DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Praktikaodin.edmx.diagram">
+      <DependentUpon>Praktikaodin.edmx</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -198,6 +217,16 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Praktika1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Praktika1.edmx</DependentUpon>
+      <LastGenOutput>Praktika1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Praktika1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Praktika1.edmx</DependentUpon>
+      <LastGenOutput>Praktika1.cs</LastGenOutput>
+    </Content>
     <Content Include="Praktikaodin.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Praktikaodin.edmx</DependentUpon>
