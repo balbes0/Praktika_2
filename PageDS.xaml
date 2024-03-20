@@ -20,6 +20,26 @@
         </Grid>
         <DataGrid CanUserAddRows="False" Visibility="Hidden" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Background="DarkGray" Foreground="Black" x:Name="DataGridDS" Loaded="DataGridDS_Loaded"/>
         <Label Grid.Row="1" Foreground="DarkGray" FontSize="15" Margin="20,20,0,0" Width="190" Height="40" VerticalAlignment="Top" HorizontalAlignment="Left" x:Name="LabelDS">Выберите таблицу</Label>
+        <StackPanel x:Name="StackPanelDS" Visibility="Hidden">
+            <materialDesign:PopupBox StaysOpen="True" Foreground="DarkGray" Padding="0" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="20">
+                <Grid Width="300" Background="#111111">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Column="0" Grid.Row="0" Text="Поиск и фильтрация" Margin="10, 10, 0, 10" FontSize="15" Foreground="DarkGray"/>
+                    <TextBox Grid.Column="0" Grid.Row="1" materialDesign:HintAssist.Hint="Поиск" Margin="10, 10, 0, 10" x:Name="SearchTextBox" Foreground="DarkGray"/>
+                    <ComboBox Grid.Column="0" Grid.Row="2" materialDesign:HintAssist.Hint="Фильтрация" Margin="10, 10, 0, 30" x:Name="FilterComboBox" Foreground="DarkGray"/>
+                    <CheckBox Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom" Margin="0, 0, 10, 10" x:Name="SearchCheckBox" Checked="SearchCheckBox_Checked" Unchecked="SearchCheckBox_Unchecked" Background="DarkGray"/>
+                    <CheckBox Grid.Column="1" Grid.Row="2" VerticalAlignment="Bottom" Margin="0, 0, 10, 30" x:Name="FilterCheckBox" Background="DarkGray" Checked="FilterCheckBox_Checked" Unchecked="FilterCheckBox_Unchecked"/>
+                </Grid>
+            </materialDesign:PopupBox>
+        </StackPanel>
         <Grid Grid.Row="2" x:Name="TextBoxGridDS">
             <TextBox materialDesign:HintAssist.Hint="Новое значение" Foreground="DarkGray" VerticalContentAlignment="Center" Margin="10, 5, 10, 5" x:Name="TextBoxDS"/>
         </Grid>

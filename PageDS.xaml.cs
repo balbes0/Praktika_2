@@ -32,10 +32,14 @@ namespace Praktika_2
                 if (selectedTable == "Цвет")
                 {
                     DataGridDS.ItemsSource = colorViewTableAdapter.GetData();
+                    FilterComboBox.ItemsSource = colorTableAdapter.GetData();
+                    FilterComboBox.DisplayMemberPath = "Color";
                 }
                 else if (selectedTable == "Обувь")
                 {
                     DataGridDS.ItemsSource = shoeViewTableAdapter.GetData();
+                    FilterComboBox.ItemsSource = shoeTableAdapter.GetData();
+                    FilterComboBox.DisplayMemberPath = "ShoeType";
                 }
                 else if (selectedTable == "Обувная фабрика")
                 {
@@ -43,19 +47,26 @@ namespace Praktika_2
                     ShoeTypeIDCMBX.ItemsSource = shoeTableAdapter.GetData();
                     ShoeTypeIDCMBX.DisplayMemberPath = "ShoeType";
                     ColorIDCMBX.ItemsSource = colorTableAdapter.GetData();
-                    ColorIDCMBX.DisplayMemberPath = "Цвет";
+                    ColorIDCMBX.DisplayMemberPath = "Color";
                     SizeIDCMBX.ItemsSource= sizeTableAdapter.GetData();
-                    SizeIDCMBX.DisplayMemberPath = "Размер";
+                    SizeIDCMBX.DisplayMemberPath = "Size";
                     TextBoxGridDS.Visibility = Visibility.Hidden;
                     ShoeFactoryGridDS.Visibility = Visibility.Visible;
+                    FilterComboBox.ItemsSource = shoeFactoryViewTableAdapter.GetData();
+                    FilterComboBox.DisplayMemberPath = "Обувь:";
                 }
                 else if (selectedTable == "Размер")
                 {
                     DataGridDS.ItemsSource = sizeViewTableAdapter.GetData();
+                    FilterComboBox.ItemsSource = sizeTableAdapter.GetData();
+                    FilterComboBox.DisplayMemberPath = "Size";
                 }
+                StackPanelDS.Visibility = Visibility.Visible;
                 if (selectedTable == "Объединенная таблица")
                 {
                     DataGridDS.ItemsSource = shoeFactoryTableAdapter.GetData();
+                    StackPanelDS.Visibility = Visibility.Hidden;
+                    TextBoxDS.Visibility = Visibility.Hidden;
                 }
                 DataGridDS.Visibility = Visibility.Visible;
                 LabelDS.Visibility = Visibility.Hidden;
@@ -66,6 +77,7 @@ namespace Praktika_2
             object id = (DataGridDS.SelectedItem as DataRowView).Row[0];
             if (nametable != "")
             {
+                SearchCheckBox.IsChecked = false;
                 if (nametable == "Цвет")
                 {
                     colorTableAdapter.UpdateQueryColor(editedText, Convert.ToInt32(id));
@@ -93,7 +105,8 @@ namespace Praktika_2
         public void AddNewData()
         {
             if (nametable != "")
-            {   
+            {
+                SearchCheckBox.IsChecked = false;
                 if (nametable == "Цвет")
                 {
                     colorTableAdapter.InsertQueryColor(TextBoxDS.Text);
@@ -128,6 +141,7 @@ namespace Praktika_2
             object id = (DataGridDS.SelectedItem as DataRowView).Row[0];
             if (nametable != "")
             {
+                SearchCheckBox.IsChecked = false;
                 if (nametable == "Цвет")
                 {
                     colorTableAdapter.DeleteQueryColor(Convert.ToInt32(id));
@@ -180,6 +194,114 @@ namespace Praktika_2
             {
                 DataGridDS.Columns[2].Visibility = Visibility.Collapsed;
                 DataGridDS.Columns[4].Visibility = Visibility.Collapsed;
+            }
+        }
+        private void SearchCheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            if (SearchCheckBox.IsChecked == true)
+            {
+                if (nametable != "")
+                {
+                    if (nametable == "Цвет")
+                    {
+                        DataGridDS.ItemsSource = colorViewTableAdapter.SearchByName(SearchTextBox.Text);
+                    }
+                    else if (nametable == "Обувь")
+                    {
+                        DataGridDS.ItemsSource = shoeViewTableAdapter.SearchByName(SearchTextBox.Text);
+                    }
+                    else if (nametable == "Размер")
+                    {
+                        DataGridDS.ItemsSource = sizeViewTableAdapter.SearchByName(SearchTextBox.Text);
+                    }
+                    else if (nametable == "Обувная фабрика")
+                    {
+                        DataGridDS.ItemsSource = shoeFactoryViewTableAdapter.SearchByName(SearchTextBox.Text);
+                    }
+                    DataGridDS.Columns[0].Visibility = Visibility.Collapsed;
+                }
+            }
+        }
+
+        private void SearchCheckBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            if (SearchCheckBox.IsChecked == false)
+            {
+                if (nametable != "")
+                {
+                    if (nametable == "Цвет")
+                    {
+                        DataGridDS.ItemsSource = colorViewTableAdapter.GetData();
+                    }
+                    else if (nametable == "Обувь")
+                    {
+                        DataGridDS.ItemsSource = shoeViewTableAdapter.GetData();
+                    }
+                    else if (nametable == "Размер")
+                    {
+                        DataGridDS.ItemsSource = sizeViewTableAdapter.GetData();
+                    }
+                    else if (nametable == "Обувная фабрика")
+                    {
+                        DataGridDS.ItemsSource = shoeFactoryViewTableAdapter.GetData();
+                    }
+                    DataGridDS.Columns[0].Visibility = Visibility.Collapsed;
+                }
+            }
+        }
+
+        private void FilterCheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            if (FilterComboBox.SelectedItem != null)
+            {
+                if (nametable != "")
+                {
+                    var id = (int)(FilterComboBox.SelectedItem as DataRowView).Row[0];
+                    if (nametable == "Цвет")
+                    {
+                        DataGridDS.ItemsSource = colorViewTableAdapter.FilterByColor(id);
+                    }
+                    else if (nametable == "Обувь")
+                    {
+                        DataGridDS.ItemsSource = shoeViewTableAdapter.FilterByShoe(id);
+                    }
+                    else if (nametable == "Размер")
+                    {
+                        DataGridDS.ItemsSource = sizeViewTableAdapter.FilterBySize(id);
+                    }
+                    else if (nametable == "Обувная фабрика")
+                    {
+                        DataGridDS.ItemsSource = shoeFactoryViewTableAdapter.FilterByShoe(FilterComboBox.Text);
+                    }
+                    DataGridDS.Columns[0].Visibility = Visibility.Collapsed;
+                }
+            }
+        }
+
+        private void FilterCheckBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            if (SearchCheckBox.IsChecked == false)
+            {
+                if (nametable != "")
+                {
+                    if (nametable == "Цвет")
+                    {
+                        DataGridDS.ItemsSource = colorViewTableAdapter.GetData();
+                    }
+                    else if (nametable == "Обувь")
+                    {
+                        DataGridDS.ItemsSource = shoeViewTableAdapter.GetData();
+                    }
+                    else if (nametable == "Размер")
+                    {
+                        DataGridDS.ItemsSource = sizeViewTableAdapter.GetData();
+                    }
+                    else if (nametable == "Обувная фабрика")
+                    {
+                        DataGridDS.ItemsSource = shoeFactoryViewTableAdapter.GetData();
+                    }
+                    DataGridDS.Columns[0].Visibility = Visibility.Collapsed;
+                }
             }
         }
     }

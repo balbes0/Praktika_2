@@ -3710,7 +3710,7 @@ namespace Praktika_2.Praktika1DataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT ID_Color, Color FROM dbo.Color";
@@ -3727,11 +3727,16 @@ namespace Praktika_2.Praktika1DataSetTableAdapters {
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Color", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Color", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "UPDATE       Color\r\nSET                Color = @Color\r\nWHERE        (ID_Color = @" +
-                "Original_ID_Color)";
+            this._commandCollection[3].CommandText = "select * from [Color] where [Color] like \'%\'+@toSearch+\'%\'";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Color", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Color", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_Color", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Color", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@toSearch", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Color", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = "UPDATE       Color\r\nSET                Color = @Color\r\nWHERE        (ID_Color = @" +
+                "Original_ID_Color)";
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Color", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Color", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_Color", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Color", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3753,6 +3758,23 @@ namespace Praktika_2.Praktika1DataSetTableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual Praktika1DataSet.ColorDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            Praktika1DataSet.ColorDataTable dataTable = new Praktika1DataSet.ColorDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual Praktika1DataSet.ColorDataTable SearchByName(string toSearch) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((toSearch == null)) {
+                throw new global::System.ArgumentNullException("toSearch");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(toSearch));
+            }
             Praktika1DataSet.ColorDataTable dataTable = new Praktika1DataSet.ColorDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -3943,7 +3965,7 @@ namespace Praktika_2.Praktika1DataSetTableAdapters {
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
         public virtual int UpdateQueryColor(string Color, int Original_ID_Color) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[4];
             if ((Color == null)) {
                 throw new global::System.ArgumentNullException("Color");
             }
@@ -5192,11 +5214,21 @@ inner join [Color] on [ShoeFactory].[Color_ID] = [Color].[ID_Color]";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT [Номер цвета:], [Цвет:] FROM dbo.ColorView";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "select * from [ColorView]\r\nwhere [Номер цвета:] = @colorid";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@colorid", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Номер цвета:", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "select * from [ColorView] where [Цвет:] like \'%\'+@toSearch+\'%\'";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@toSearch", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Цвет:", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5218,6 +5250,35 @@ inner join [Color] on [ShoeFactory].[Color_ID] = [Color].[ID_Color]";
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual Praktika1DataSet.ColorViewDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            Praktika1DataSet.ColorViewDataTable dataTable = new Praktika1DataSet.ColorViewDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual Praktika1DataSet.ColorViewDataTable FilterByColor(int colorid) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(colorid));
+            Praktika1DataSet.ColorViewDataTable dataTable = new Praktika1DataSet.ColorViewDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual Praktika1DataSet.ColorViewDataTable SearchByName(string toSearch) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((toSearch == null)) {
+                throw new global::System.ArgumentNullException("toSearch");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(toSearch));
+            }
             Praktika1DataSet.ColorViewDataTable dataTable = new Praktika1DataSet.ColorViewDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -5363,12 +5424,23 @@ inner join [Color] on [ShoeFactory].[Color_ID] = [Color].[ID_Color]";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT [Номер продукта:], [Обувь:], [Размер:], [Цвет:], [Цена:] FROM dbo.ShoeFact" +
                 "oryView";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "select * from [ShoeFactoryView]\r\nwhere [Обувь:] = @shoetype";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@shoetype", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Обувь:", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT        [Номер продукта:], [Обувь:], [Размер:], [Цвет:], [Цена:]\r\nFROM     " +
+                "       ShoeFactoryView\r\nWHERE        ([Обувь:] LIKE \'%\' + @toSearch + \'%\')";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@toSearch", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Обувь:", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5390,6 +5462,40 @@ inner join [Color] on [ShoeFactory].[Color_ID] = [Color].[ID_Color]";
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual Praktika1DataSet.ShoeFactoryViewDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            Praktika1DataSet.ShoeFactoryViewDataTable dataTable = new Praktika1DataSet.ShoeFactoryViewDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual Praktika1DataSet.ShoeFactoryViewDataTable FilterByShoe(string shoetype) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((shoetype == null)) {
+                throw new global::System.ArgumentNullException("shoetype");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(shoetype));
+            }
+            Praktika1DataSet.ShoeFactoryViewDataTable dataTable = new Praktika1DataSet.ShoeFactoryViewDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual Praktika1DataSet.ShoeFactoryViewDataTable SearchByName(string toSearch) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((toSearch == null)) {
+                throw new global::System.ArgumentNullException("toSearch");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(toSearch));
+            }
             Praktika1DataSet.ShoeFactoryViewDataTable dataTable = new Praktika1DataSet.ShoeFactoryViewDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -5532,11 +5638,21 @@ inner join [Color] on [ShoeFactory].[Color_ID] = [Color].[ID_Color]";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT [Номер обуви:], [Тип обуви:] FROM dbo.ShoeView";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "select * from [ShoeView]\r\nwhere [Номер обуви:] = @shoeid";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@shoeid", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Номер обуви:", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "select * from [ShoeView]\r\nwhere [Тип обуви:] like \'%\'+@toSearch+\'%\'";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@toSearch", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Тип обуви:", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5558,6 +5674,35 @@ inner join [Color] on [ShoeFactory].[Color_ID] = [Color].[ID_Color]";
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual Praktika1DataSet.ShoeViewDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            Praktika1DataSet.ShoeViewDataTable dataTable = new Praktika1DataSet.ShoeViewDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual Praktika1DataSet.ShoeViewDataTable FilterByShoe(int shoeid) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(shoeid));
+            Praktika1DataSet.ShoeViewDataTable dataTable = new Praktika1DataSet.ShoeViewDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual Praktika1DataSet.ShoeViewDataTable SearchByName(string toSearch) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((toSearch == null)) {
+                throw new global::System.ArgumentNullException("toSearch");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(toSearch));
+            }
             Praktika1DataSet.ShoeViewDataTable dataTable = new Praktika1DataSet.ShoeViewDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -5700,11 +5845,23 @@ inner join [Color] on [ShoeFactory].[Color_ID] = [Color].[ID_Color]";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT [Номер размера:], [Размер:] FROM dbo.SizeView";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "select * from [SizeView]\r\nwhere [Номер размера:] = @sizeid";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@sizeid", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Номер размера:", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT        [Номер размера:], [Размер:]\r\nFROM            SizeView\r\nWHERE       " +
+                " (CAST([Размер:] AS NVARCHAR(MAX)) LIKE \'%\' + CAST(@toSearchInt AS NVARCHAR(MAX)" +
+                ") + \'%\')";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@toSearchInt", global::System.Data.SqlDbType.NVarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5726,6 +5883,35 @@ inner join [Color] on [ShoeFactory].[Color_ID] = [Color].[ID_Color]";
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual Praktika1DataSet.SizeViewDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            Praktika1DataSet.SizeViewDataTable dataTable = new Praktika1DataSet.SizeViewDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual Praktika1DataSet.SizeViewDataTable FilterBySize(int sizeid) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(sizeid));
+            Praktika1DataSet.SizeViewDataTable dataTable = new Praktika1DataSet.SizeViewDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual Praktika1DataSet.SizeViewDataTable SearchByName(string toSearchInt) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((toSearchInt == null)) {
+                throw new global::System.ArgumentNullException("toSearchInt");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(toSearchInt));
+            }
             Praktika1DataSet.SizeViewDataTable dataTable = new Praktika1DataSet.SizeViewDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

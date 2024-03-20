@@ -6,6 +6,7 @@ using System.Windows.Controls;
 using static MaterialDesignThemes.Wpf.Theme;
 using System.Runtime.CompilerServices;
 using System.Windows.Media.TextFormatting;
+using Praktika_2.Praktika1DataSetTableAdapters;
 
 namespace Praktika_2
 {
@@ -24,14 +25,19 @@ namespace Praktika_2
                 GridTextBoxEF.Visibility = Visibility.Visible;
                 DataGridEF.Visibility = Visibility.Visible;
                 LabelEF.Visibility = Visibility.Hidden;
+                StackPanelEF.Visibility = Visibility.Visible;
                 nametable = selectedTable;
                 if (selectedTable == "Цвет")
                 {
                     DataGridEF.ItemsSource = praktika1Entity.ColorView.ToList();
+                    FilterComboBox.ItemsSource = praktika1Entity.Color.ToList();
+                    FilterComboBox.DisplayMemberPath = "Color1";
                 }
                 else if (selectedTable == "Обувь")
                 {
                     DataGridEF.ItemsSource = praktika1Entity.ShoeView.ToList();
+                    FilterComboBox.ItemsSource = praktika1Entity.Shoe.ToList();
+                    FilterComboBox.DisplayMemberPath = "ShoeType";
                 }
                 else if (selectedTable == "Обувная фабрика")
                 {
@@ -44,15 +50,21 @@ namespace Praktika_2
                     ShoeTypeIDCMBX.DisplayMemberPath = "ShoeType";
                     GridTextBoxEF.Visibility = Visibility.Hidden;
                     GridComboBoxesEF.Visibility = Visibility.Visible;
+                    FilterComboBox.ItemsSource = praktika1Entity.ShoeFactoryView.ToList();
+                    FilterComboBox.DisplayMemberPath = "Обувь";
                 }
                 else if (selectedTable == "Размер")
                 {
                     DataGridEF.ItemsSource = praktika1Entity.SizeView.ToList();
+                    FilterComboBox.ItemsSource = praktika1Entity.Size.ToList();
+                    FilterComboBox.DisplayMemberPath = "Size1";
                 }
                 else if (selectedTable == "Объединенная таблица")
                 {
                     DataGridAllTables.Visibility = Visibility.Visible;
                     DataGridAllTables.ItemsSource = praktika1Entity.ShoeFactory.ToList();
+                    StackPanelEF.Visibility = Visibility.Hidden;
+                    TextBoxEF.Visibility = Visibility.Hidden;
                 }
             }
         }
@@ -204,6 +216,118 @@ namespace Praktika_2
             if (nametable != "" && nametable != "Объединенная таблица")
             {
                 DataGridEF.Columns[0].Visibility = Visibility.Collapsed;
+            }
+        }
+
+        private void SearchCheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            if (SearchCheckBox.IsChecked == true)
+            {
+                if (nametable != "")
+                {
+                    if (nametable == "Цвет")
+                    {
+                        DataGridEF.ItemsSource = praktika1Entity.ColorView.ToList().Where(item => item.Цвет.Contains(SearchTextBox.Text));
+                    }
+                    else if (nametable == "Обувь")
+                    {
+                        DataGridEF.ItemsSource = praktika1Entity.ShoeView.ToList().Where(item => item.Тип__обуви.Contains(SearchTextBox.Text));
+                    }
+                    else if (nametable == "Размер")
+                    {
+                        DataGridEF.ItemsSource = praktika1Entity.SizeView.ToList().Where(item => item.Размер.ToString().Contains(SearchTextBox.Text));
+                    }
+                    else if (nametable == "Обувная фабрика")
+                    {
+                        DataGridEF.ItemsSource = praktika1Entity.ShoeFactoryView.ToList().Where(item => item.Обувь.Contains(SearchTextBox.Text));
+                    }
+                    DataGridEF.Columns[0].Visibility = Visibility.Collapsed;
+                }
+            }
+        }
+
+        private void SearchCheckBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            if (SearchCheckBox.IsChecked == false)
+            {
+                if (nametable != "")
+                {
+                    if (nametable == "Цвет")
+                    {
+                        DataGridEF.ItemsSource = praktika1Entity.ColorView.ToList();
+                    }
+                    else if (nametable == "Обувь")
+                    {
+                        DataGridEF.ItemsSource = praktika1Entity.ShoeView.ToList();
+                    }
+                    else if (nametable == "Размер")
+                    {
+                        DataGridEF.ItemsSource = praktika1Entity.SizeView.ToList();
+
+                    }
+                    else if (nametable == "Обувная фабрика")
+                    {
+                        DataGridEF.ItemsSource = praktika1Entity.ShoeFactoryView.ToList();
+
+                    }
+                    DataGridEF.Columns[0].Visibility = Visibility.Collapsed;
+                }
+            }
+        }
+
+        private void FilterCheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            if (FilterComboBox.SelectedItem != null)
+            {
+                if (nametable != "")
+                {
+                    if (nametable == "Цвет")
+                    {
+                        DataGridEF.ItemsSource = praktika1Entity.ColorView.ToList().Where(item => item.Цвет == FilterComboBox.Text); ;
+                    }
+                    else if (nametable == "Обувь")
+                    {
+                        DataGridEF.ItemsSource = praktika1Entity.ShoeView.ToList().Where(item => item.Тип__обуви == FilterComboBox.Text); ;
+                    }
+                    else if (nametable == "Размер")
+                    {
+                        DataGridEF.ItemsSource = praktika1Entity.SizeView.ToList().Where(item => item.Размер == Convert.ToInt32(FilterComboBox.Text));
+                    }
+                    else if (nametable == "Обувная фабрика")
+                    {
+                        DataGridEF.ItemsSource = praktika1Entity.ShoeFactoryView.ToList().Where(item => item.Обувь == FilterComboBox.Text); ;
+                    }
+                    DataGridEF.Columns[0].Visibility = Visibility.Collapsed;
+                }
+            }
+        }
+
+        private void FilterCheckBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            if (SearchCheckBox.IsChecked == false)
+            {
+                if (nametable != "")
+                {
+                    if (nametable == "Цвет")
+                    {
+                        DataGridEF.ItemsSource = praktika1Entity.ColorView.ToList();
+                    }
+                    else if (nametable == "Обувь")
+                    {
+                        DataGridEF.ItemsSource = praktika1Entity.ShoeView.ToList();
+                    }
+                    else if (nametable == "Размер")
+                    {
+                        DataGridEF.ItemsSource = praktika1Entity.SizeView.ToList();
+
+                    }
+                    else if (nametable == "Обувная фабрика")
+                    {
+                        DataGridEF.ItemsSource = praktika1Entity.ShoeFactoryView.ToList();
+
+                    }
+                    DataGridEF.Columns[0].Visibility = Visibility.Collapsed;
+                }
             }
         }
     }
